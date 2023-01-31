@@ -6,7 +6,7 @@
   --header-height: 3.5rem;
 
   /*========== Colors ==========*/
-  --first-color: hsl(31, 100%, 70%);
+  --first-color: hsl(46, 80%, 62%);
   --button-color: hsl(0, 0%, 17%);
   --button-color-alt: hsl(0, 0%, 21%);
   --title-color: hsl(0, 0%, 15%);
@@ -318,11 +318,12 @@ body.dark-theme {
 
 .home__img {
   width: 240px;
+  margin-bottom: 5.5rem;
 }
 
 .home__img-bg {
   background-color: var(--first-color);
-  width: 258px;
+  width: 290px;
   height: 430px;
   padding-bottom: 2rem;
   display: flex;
@@ -1238,7 +1239,7 @@ body.dark-theme {
 /*??=============== About US ===============*/
 
 .section-About-box{
-  background-color:  #f5c48f;;
+  background-color: var(--first-color);
   padding: 10px 10px;
   border-radius: 10px;
 }
@@ -1307,9 +1308,9 @@ display: flex;
 
 }
   
-/*??=============== Contact US ===============*/
+/*??---- Contact US ------*/
 .section-Contact{
-    background-color: #f5c48f;
+    background-color: var(--first-color);
   padding: 10px 10px;
   border-radius: 10px;
   margin-top: 10rem;
@@ -1350,8 +1351,13 @@ gap: 25px;
 .box-Messagg form{
  display: inline;
     gap: 50px;
+    width: 50%;
     
 
+}
+
+.img-input{
+  border-radius: 15px;
 }
 
 .field{

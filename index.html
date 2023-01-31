@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <!--==================== HEADER ====================-->
+    <!--?? HEADER  ?---->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">
@@ -48,14 +48,15 @@
                 </ul>
 
                 <div class="nav__close" id="nav-close">
+
                     <i class='bx bx-x'></i>
+
                 </div>
             </div>
 
             <div class="nav__btns">
-                <!-- Theme change button -->
+                <!--?? Theme change button -->
                 <i class='bx bx-moon change-theme' id="theme-button"></i>
-
                 <div class="nav__shop" id="cart-shop">
                     <i class='bx bx-shopping-bag'></i>
                 </div>
@@ -63,11 +64,14 @@
                 <div class="nav__toggle" id="nav-toggle">
                     <i class='bx bx-grid-alt'></i>
                 </div>
+                <div class="nav__shop" id="cart-shop">
+                    <a href=""><i class='bx bxs-user-account'></i></a>
+                </div>
             </div>
         </nav>
     </header>
 
-    <!--==================== CART ====================-->
+    <!--?? CART  --------->
     <div class="cart" id="cart">
         <i class='bx bx-x cart__close' id="cart-close"></i>
 
@@ -164,13 +168,14 @@
         </div>
     </div>
 
-    <!--==================== MAIN ====================-->
+    <!--?? MAIN  ------------>
     <main class="main">
-        <!--==================== HOME ====================-->
+
+        <!--?? HOME --------->
         <section class="home" id="home">
             <div class="home__container container grid">
                 <div class="home__img-bg">
-                    <img src="img/home.png" alt="" class="home__img">
+                    <img src="./img/home.png.png" alt="" class="home__img">
                 </div>
 
                 <div class="home__social">
@@ -204,13 +209,13 @@
             </div>
         </section>
 
-        <!--?? ==================== FEATURED ==================== -->
+        <!--??  FEATURED ------------>
         <section class="featured section container" id="featured">
             <h2 class="section__title">
                 Featured
             </h2>
 
-            <div class="featured__container grid">
+            <!-- <div class="featured__container grid">
                 <article class="featured__card">
                     <span class="featured__tag">Sale</span>
 
@@ -250,10 +255,10 @@
                     <button class="button featured__button">ADD TO CART</button>
                 </article>
 
-            </div>
+            </div> -->
         </section>
 
-        <!--==================== STORY ====================-->
+        <!--?? STORY  ----------------->
         <section class="story section container">
             <div class="story__container grid">
                 <div class="story__data">
@@ -274,20 +279,20 @@
                 </div>
 
                 <div class="story__images">
-                    <img src="img/story.png" alt="" class="story__img">
+                    <img src="./img/story.png.jpg" alt="" class="story__img">
                     <div class="story__square"></div>
                 </div>
             </div>
         </section>
 
-        <!--??==================== PRODUCTS ====================-->
+        <!--?? PRODUCTS --------->
         <section class="products section container" id="products">
             <h2 class="section__title">
                 Products
             </h2>
 
-            <div class="products__container grid">
-                <article class="products__card">
+            <div class="products__container grid" id="cardContiner">
+                <!-- <article class="products__card">
                     <img src="img/product1.png" alt="" class="products__img">
 
                     <h3 class="products__title">Spirit rose</h3>
@@ -350,11 +355,11 @@
                     <button class="products__button">
                         <i class='bx bx-shopping-bag'></i>
                     </button>
-                </article>
+                </article> -->
             </div>
         </section>
 
-        <!--==================== TESTIMONIAL ====================-->
+        <!--?? TESTIMONIAL ------------>
         <section class="testimonial section container">
             <div class="testimonial__container grid">
                 <div class="swiper testimonial-swiper">
@@ -433,12 +438,12 @@
 
                 <div class="testimonial__images">
                     <div class="testimonial__square"></div>
-                    <img src="img/testimonial.png" alt="" class="testimonial__img">
+                    <img src="./img/testimonial.jpg" alt="" class="testimonial__img">
                 </div>
             </div>
         </section>
 
-        <!--??==================== NEW ====================-->
+        <!--??--------------- NEW----------------->
         <section class="new section container" id="new">
             <h2 class="section__title">
                 New Arrivals
@@ -446,7 +451,7 @@
 
             <div class="new__container">
                 <div class="swiper new-swiper">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" id="new-swiper">
                         <article class="new__card swiper-slide">
                             <span class="new__tag">New</span>
 
@@ -503,7 +508,7 @@
             </div>
         </section>
 
-        <!--==================== NEWSLETTER ====================-->
+        <!-- ?? NEWSLETTER -->
         <section class="newsletter section container">
             <div class="newsletter__bg grid">
                 <div>
@@ -525,7 +530,7 @@
         </section>
     </main>
 
-    <!--==================== FOOTER ====================-->
+    <!--?? FOOTER -->
     <footer class="footer section">
         <div class="footer__container container grid">
             <div class="footer__content">
@@ -597,20 +602,22 @@
         <span class="footer__copy">&#169; Bedimcode. All rigths reserved</span>
     </footer>
 
-    <!--=============== SCROLL UP ===============-->
+
     <a href="#" class="scrollup" id="scroll-up">
         <i class='bx bx-up-arrow-alt scrollup__icon'></i>
     </a>
 
 
-
-    <!--=============== SWIPER JS ===============-->
+    <!--?? SWIPER JS ---------->
     <script src="./js/swiper-bundle.min.js"></script>
 
-    <!--=============== MAIN JS ===============-->
+    <!--?? MAIN JS ------------->
     <script src="./js/main.js"></script>
-    <!--=============== API JS ===============-->
-    <script src="./js/api.js"></script>
+
+
+
+    <!-- ?? API JS -------------
+        <script src="./js/api.js"></script> -->
 </body>
 
 </html>
