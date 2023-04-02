@@ -177,7 +177,7 @@ const cardContiner = document.querySelector('#products');
 const featured = document.querySelector('#featured');
 const newSwiperr = document.querySelector('#new-swiper');
 
-const urlApi = "https://api.apify.com/v2/datasets/B0CblUwCnHFoWZGRE/items?clean=true&format=json";
+const urlApi = "https://api.apify.com/v2/datasets/e2WdNO8gDkAGLHbab/items?clean=true&format=json";
 
 myProducts()
 
