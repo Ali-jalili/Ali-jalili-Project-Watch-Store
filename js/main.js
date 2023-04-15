@@ -83,11 +83,7 @@ const scrollActive = () => {
             sectionId = current.getAttribute('id'),
             sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
 
-        // if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        //     sectionsClass.classList.add('active-link')
-        // } else {
-        //     sectionsClass.classList.remove('active-link')
-        // }
+
     })
 }
 window.addEventListener('scroll', scrollActive)
@@ -108,25 +104,59 @@ const scrollUp = () => {
 window.addEventListener('scroll', scrollUp)
 
 /*// SHOW CART ??*/
-const cart = document.getElementById('cart'),
-    cartShop = document.getElementById('cart-shop'),
-    cartClose = document.getElementById('cart-close')
+
+// const cart = document.getElementById('cart'),
+//     cartShop = document.getElementById('cart-shop'),
+//     cartClose = document.getElementById('cart-close')
+
 
 /*?? CART SHOW ??*/
 /* Validate if constant exists */
+
+// if (cartShop) {
+//     cartShop.addEventListener('click', () => {
+//         cart.classList.add('show-cart')
+//     })
+// }
+
+
+/*?? CART HIDDEN ??*/
+/* Validate if constant exists */
+
+// if (cartClose) {
+//     cartClose.addEventListener('click', () => {
+//         cart.classList.remove('show-cart')
+//     })
+// }
+
+const cart = document.getElementById('cart')
+const cartShop = document.getElementById('cart-shop')
+const cartClose = document.querySelector(".cart__close")
+
+
+
 if (cartShop) {
     cartShop.addEventListener('click', () => {
         cart.classList.add('show-cart')
     })
 }
 
-/*?? CART HIDDEN ??*/
-/* Validate if constant exists */
 if (cartClose) {
     cartClose.addEventListener('click', () => {
         cart.classList.remove('show-cart')
     })
 }
+
+
+
+
+
+
+
+
+
+
+
 
 /*?? DARK LIGHT THEME ??*/
 const themeButton = document.getElementById('theme-button')
@@ -177,7 +207,7 @@ const cardContiner = document.querySelector('#products');
 const featured = document.querySelector('#featured');
 const newSwiperr = document.querySelector('#new-swiper');
 
-const urlApi = "https://api.apify.com/v2/datasets/e2WdNO8gDkAGLHbab/items?clean=true&format=json";
+const urlApi = "https://api.apify.com/v2/datasets/b8droDZ2GfGhUOiK2/items?clean=true&format=json";
 
 myProducts()
 
@@ -193,7 +223,7 @@ function myProducts() {
             const div = document.createElement('div');
             div.className = 'products__container grid';
 
-            data.slice(7, 17).forEach((products) => {
+            data.slice(13, 34).forEach((products) => {
 
                 const divProdust = `<div class="products__card">
 
@@ -237,7 +267,7 @@ function myfeatured() {
             const div = document.createElement('div');
             div.className = 'featured__container grid';
 
-            data.slice(0, 6).forEach((products) => {
+            data.slice(0, 12).forEach((products) => {
 
 
 

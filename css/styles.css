@@ -419,6 +419,7 @@ body.dark-theme {
   border: 1px solid var(--border-color);
   overflow-y: hidden;
   transition: .3s;
+  
 }
 
 .featured__tag {
@@ -509,6 +510,9 @@ body.dark-theme {
   left: 3rem;
   top: -3rem;
 }
+
+
+
 
 /*=============== PRODUCTS ===============*/
 .products__container {
@@ -863,7 +867,7 @@ body.dark-theme {
 }
 
 /*=============== CART ===============*/
-.cart {
+/* .cart {
   position: fixed;
   background-color: var(--body-color);
   z-index: var(--z-fixed);
@@ -969,12 +973,111 @@ body.dark-theme {
 .cart__prices-total {
   font-size: var(--h3-font-size);
   font-weight: var(--font-medium);
-}
+} */
 
 /* Show cart */
-.show-cart {
+/* .show-cart {
   right: 0;
+} */
+
+
+ .cart {
+  position: fixed;
+  /* left: 16.5rem; */
+  background-color: var(--body-color);
+  z-index: var(--z-fixed);
+  width: 60%;
+  padding: 3.5rem 2rem;
+  transition: .4s;
+  height: 86vh;
+ 
+  transform: translate(17rem, -34rem);
 }
+
+
+
+.cart__title-center {
+  font-size: var(--h2-font-size);
+  text-align: center;
+  margin-bottom: var(--mb-1);
+}
+
+
+.cart__close {
+  font-size: 2rem;
+  color: var(--title-color);
+  position: absolute;
+  top: 1.25rem;
+  right: .9rem;
+  cursor: pointer;
+}
+
+
+.cart__container{
+      display: flex;
+    justify-content: space-between;
+        gap: 10px;
+}
+
+.cart__card{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.cart__details{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.cart__title {
+  font-size: var(--normal-font-size);
+  margin-bottom: .5rem;
+}
+
+.cart__price {
+  display: block;
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+  margin-bottom: var(--mb-1-5);
+}
+
+.cart__img {
+  width: 50px;
+  margin-top: 30px;
+  
+}
+.cart__amount{
+  
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart__amount-box {
+  display: inline-flex;
+  padding: .25rem;
+  background-color: var(--container-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.cart__amount-trash {
+  font-size: 1.15rem;
+  color: var(--first-color);
+  cursor: pointer;
+}
+
+
+.show-cart {
+  transform: translate(17rem, 5rem);
+}
+
+
+
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
@@ -1035,7 +1138,7 @@ body.dark-theme {
   }
 
   .cart {
-    width: 420px;
+    /* width: 420px; */
     box-shadow: -2px 0 4px hsla(0, 0%, 15%, .1);
   }
 
