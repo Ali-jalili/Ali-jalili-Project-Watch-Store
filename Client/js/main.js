@@ -105,6 +105,8 @@ window.addEventListener('scroll', scrollUp)
 
 
 
+//?? Cart ??//
+
 const cart = document.getElementById('cart')
 const cartShop = document.getElementById('cart-shop')
 const cartClose = document.querySelector(".cart__close")
@@ -123,7 +125,17 @@ if (cartClose) {
     })
 }
 
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.add('show-menu');
+        cart.classList.remove('show-cart'); // افزودن این خط برای بستن کارت هنگام کلیک بر روی منو
+    });
+}
 
+
+
+
+//? Add Card ?//
 
 
 
@@ -177,59 +189,109 @@ themeButton.addEventListener('click', () => {
 
 
 
-
+// Add Api //
 
 const cardContiner = document.querySelector('#products');
 const featured = document.querySelector('#featured');
 const newSwiperr = document.querySelector('#new-swiper');
 
-const urlApi = "https://api.apify.com/v2/datasets/b8droDZ2GfGhUOiK2/items?clean=true&format=json";
+const urlApi = "https://api.apify.com/v2/datasets/Sntk8efIVdLtWUgud/items?clean=true&format=json";
 
-myProducts()
+// myProducts()
+
+// function myProducts() {
+
+//     fetch(urlApi)
+//         .then((res) => {
+//             return res.json();
+//         })
+
+
+//         .then(data => {
+//             const div = document.createElement('div');
+//             div.className = 'products__container grid';
+
+//             data.slice(13, 34).forEach((products) => {
+
+//                 const divProdust = `<div class="products__card">
+
+//                  <img src="${products.images_urls[0]}" alt="" class="products__img"></img>
+
+//                     <h3 class="products__title">${products.brand}</h3>
+//                     <span class="products__price">${products.price} $  </span>
+
+//                     <button class="add-card products__button">
+//                         <i class='bx bx-shopping-bag'></i>
+//                     </button>
+//                 </div>`;
+
+//                 if (products.product_type === "Watch") {
+//                     cardContiner.appendChild(div);
+//                     div.innerHTML += divProdust
+
+//                 }
+
+
+
+
+
+
+
+//             })
+
+
+//         })
+
+//         .catch(error => console.log(error));
+// }
+
 
 function myProducts() {
-
     fetch(urlApi)
         .then((res) => {
             return res.json();
         })
-
-
         .then(data => {
             const div = document.createElement('div');
             div.className = 'products__container grid';
 
-            data.slice(13, 34).forEach((products) => {
-
-                const divProdust = `<div class="products__card">
-
-                 <img src="${products.images_urls[0]}" alt="" class="products__img"></img>
-
-                    <h3 class="products__title">${products.brand}</h3>
-                    <span class="products__price">${products.price} $  </span>
-
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </div>`;
-
-                if (products.product_type === "Watch") {
-                    cardContiner.appendChild(div);
-                    div.innerHTML += divProdust
+            data.slice(13, 34).forEach((product) => {
+                if (product.product_type === "Watch") {
+                    const divProduct = `
+            <div class="products__card">
+              <img src="${product.images_urls[0]}" alt="" class="products__img">
+              <h3 class="products__title">${product.brand}</h3>
+              <span class="products__price">${product.price} $</span>
+              <button class="products__button add-to-cart" data-product-id="${product.id}">
+                <i class='bx bx-shopping-bag'></i>
+              </button>
+            </div>
+          `;
+                    div.innerHTML += divProduct;
                 }
+            });
+
+            cardContainer.appendChild(div);
+
+            // رویداد کلیک برای دکمه add-to-cart
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.dataset.productId;
+                    const product = data.find(item => item.id === productId);
+                    addToCart(product);
 
 
-            })
-
-
-
-        })
-
-
-
-
-        .catch(error => console.log(error));
+                });
+            });
+        });
 }
+
+function addToCart(product) {
+    // اضافه کردن محصول به کارت
+    console.log(`محصول ${product.brand} با موفقیت به کارت اضافه شد.`);
+}
+
 
 myfeatured()
 function myfeatured() {
@@ -257,7 +319,7 @@ function myfeatured() {
                         <span class="featured__price">${products.price} $</span>
                     </div>
 
-                    <button class="button featured__button">ADD TO CART</button>
+                    <button class="add-card button featured__button">ADD TO CART</button>
                 </div>`
 
 
@@ -277,4 +339,8 @@ function myfeatured() {
         .catch(error => console.log(error));
 
 }
+
+
+
+
 

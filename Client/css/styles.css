@@ -247,7 +247,7 @@ body.dark-theme {
 
 @media screen and (max-width: 805px) {
 .nav__list{
-  width: 95%;
+  width: 100%;
 }
   
 
@@ -981,9 +981,9 @@ body.dark-theme {
 } */
 
 
- .cart {
+ /* .cart {
   position: fixed;
-  /* left: 16.5rem; */
+  
   background-color: var(--body-color);
   z-index: var(--z-fixed);
   width: 60%;
@@ -992,12 +992,64 @@ body.dark-theme {
   height: 86vh;
  
   transform: translate(17rem, -34rem);
+} */
+
+.cart {
+/* display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: fixed;
+top: 55%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: var(--body-color);
+z-index: var(--z-fixed);
+width: 60%;
+padding: 3.5rem 2rem;
+transition: 0.4s;
+height: 86vh; */
+
+position: fixed;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -185%);
+  background-color: var(--body-color);
+  z-index: var(--z-fixed);
+  width: 60vw;
+  max-width: 900px;
+  height: 86vh;
+  max-height: 600px;
+  padding: 3.5rem 2rem;
+  transition: 0.4s;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* موبایل */
+@media screen and (max-width: 480px) {
+  .cart {
+     width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+  }
+}
+
+/* تبلت */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .cart {
+    width: 100vw;
+    height: 100vh;
+    padding: 2.5rem;
+  }
 }
 
 
 
-.cart__title-center {
-  font-size: var(--h2-font-size);
+
+
+
+
+.cart__title- { 
   text-align: center;
   margin-bottom: var(--mb-1);
 }
@@ -1073,7 +1125,7 @@ body.dark-theme {
 
 
 .show-cart {
-  transform: translate(17rem, 5rem);
+  transform: translate(-50%, -50%);
 }
 
 
@@ -1137,10 +1189,6 @@ body.dark-theme {
     padding: 8rem 0 1rem;
   }
 
-  .cart {
-    /* width: 420px; */
-    box-shadow: -2px 0 4px hsla(0, 0%, 15%, .1);
-  }
 
   .nav {
     height: calc(var(--header-height) + 1.5rem);
@@ -1292,6 +1340,9 @@ body.dark-theme {
   }
 
  
+
+
+ 
 }
 
 /* For large devices */
@@ -1322,12 +1373,15 @@ body.dark-theme {
   .scrollup {
     right: 3rem;
   }
+  
+  
 }
 
 
 .section-About{
   margin-top: 10rem;
 }
+
 
 
 
@@ -1384,6 +1438,8 @@ box-1 p{
     width: 100%;
     height: auto;
   align-self: center;
+
+  
 }
 
 @media screen and (max-width: 816px){
@@ -1408,6 +1464,8 @@ display: flex;
   width: 80%;
   margin-top: 10px;
 }
+
+   
 
 }
   
