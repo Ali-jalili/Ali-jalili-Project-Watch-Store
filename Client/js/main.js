@@ -89,19 +89,33 @@ const scrollActive = () => {
 window.addEventListener('scroll', scrollActive)
 
 /*?? SHOW SCROLL UP ??*/
+// const scrollUp = () => {
+//     const scrollUp = document.getElementById('scroll-up')
+// When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
+
+
+
+//     if (window.scrollY >= 350) {
+//         scrollUp.classList.add('show-scroll');
+//         scrollUp.classList.remove('show-scroll');
+
+//     }
+// }
+// window.addEventListener('scroll', scrollUp)
+
 const scrollUp = () => {
-    const scrollUp = document.getElementById('scroll-up')
-    // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
+    const scrollUp = document.getElementById('scroll-up');
 
-
-
-    if (window.scrollY >= 350) {
+    if (window.scrollY >= 550) {
         scrollUp.classList.add('show-scroll');
+        scrollUp.classList.remove('hide-scroll');
+    } else {
         scrollUp.classList.remove('show-scroll');
-
+        scrollUp.classList.add('hide-scroll');
     }
 }
-window.addEventListener('scroll', scrollUp)
+
+window.addEventListener('scroll', scrollUp);
 
 
 
@@ -197,100 +211,54 @@ const newSwiperr = document.querySelector('#new-swiper');
 
 const urlApi = "https://api.apify.com/v2/datasets/Sntk8efIVdLtWUgud/items?clean=true&format=json";
 
-// myProducts()
-
-// function myProducts() {
-
-//     fetch(urlApi)
-//         .then((res) => {
-//             return res.json();
-//         })
-
-
-//         .then(data => {
-//             const div = document.createElement('div');
-//             div.className = 'products__container grid';
-
-//             data.slice(13, 34).forEach((products) => {
-
-//                 const divProdust = `<div class="products__card">
-
-//                  <img src="${products.images_urls[0]}" alt="" class="products__img"></img>
-
-//                     <h3 class="products__title">${products.brand}</h3>
-//                     <span class="products__price">${products.price} $  </span>
-
-//                     <button class="add-card products__button">
-//                         <i class='bx bx-shopping-bag'></i>
-//                     </button>
-//                 </div>`;
-
-//                 if (products.product_type === "Watch") {
-//                     cardContiner.appendChild(div);
-//                     div.innerHTML += divProdust
-
-//                 }
-
-
-
-
-
-
-
-//             })
-
-
-//         })
-
-//         .catch(error => console.log(error));
-// }
-
+myProducts()
 
 function myProducts() {
+
     fetch(urlApi)
         .then((res) => {
             return res.json();
         })
+
+
         .then(data => {
             const div = document.createElement('div');
             div.className = 'products__container grid';
 
-            data.slice(13, 34).forEach((product) => {
-                if (product.product_type === "Watch") {
-                    const divProduct = `
-            <div class="products__card">
-              <img src="${product.images_urls[0]}" alt="" class="products__img">
-              <h3 class="products__title">${product.brand}</h3>
-              <span class="products__price">${product.price} $</span>
-              <button class="products__button add-to-cart" data-product-id="${product.id}">
-                <i class='bx bx-shopping-bag'></i>
-              </button>
-            </div>
-          `;
-                    div.innerHTML += divProduct;
+            data.slice(13, 33).forEach((products) => {
+
+                const divProdust = `<div class="products__card">
+
+                 <img src="${products.images_urls[0]}" alt="" class="products__img"></img>
+
+                    <h3 class="products__title">${products.brand}</h3>
+                    <h4 class="products__title">${products.title}</h4>
+                    <span class="products__price">${products.price} $  </span>
+
+                    <button class="add-card products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </div>`;
+
+                if (products.product_type === "Watch") {
+                    cardContiner.appendChild(div);
+                    div.innerHTML += divProdust
+
                 }
-            });
-
-            cardContainer.appendChild(div);
-
-            // رویداد کلیک برای دکمه add-to-cart
-            const addToCartButtons = document.querySelectorAll('.add-to-cart');
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const productId = button.dataset.productId;
-                    const product = data.find(item => item.id === productId);
-                    addToCart(product);
 
 
-                });
-            });
-        });
+            })
+
+
+        })
+
+        .catch(error => console.log(error));
 }
 
-function addToCart(product) {
-    // اضافه کردن محصول به کارت
-    console.log(`محصول ${product.brand} با موفقیت به کارت اضافه شد.`);
-}
+
+
+
+
 
 
 myfeatured()
@@ -344,3 +312,29 @@ function myfeatured() {
 
 
 
+
+
+
+// ایجاد یک شیء ScrollReveal جدید
+const sr = ScrollReveal({
+    distance: '60px',
+    duration: 2500,
+    delay: 100
+});
+
+// تعریف یک انیمیشن برای المان های مورد نظر
+sr.reveal('.home__social-link', { origin: 'top', interval: 400 });
+sr.reveal('.home__title ', { origin: 'left', delay: 300 });
+sr.reveal('.home__description ', { origin: 'left', delay: 200 });
+sr.reveal('.home__img', { origin: 'right', delay: 200 });
+
+sr.reveal('.story__img', { origin: 'left', delay: 500 });
+
+sr.reveal('.section__title, .story__title, .story__description, .button--small  ', { origin: 'right', interval: 300 });
+
+sr.reveal('.testimonial__img', { origin: 'right', delay: 500 });
+sr.reveal('.testimonial__description, .testimonial__date, .testimonial__perfil', { origin: 'left', interval: 300 });
+
+sr.reveal('.newsletter__title, .newsletter__description, .newsletter__input, .btn2', { origin: 'bottom', interval: 300 });
+
+sr.reveal('.footer__container ', { origin: 'bottom', interval: 300 });
