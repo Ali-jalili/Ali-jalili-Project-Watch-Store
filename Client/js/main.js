@@ -1,10 +1,11 @@
-/* ?? SHOW MENU */
+//?? SHOW MENU */
 
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),
     navClose = document.getElementById('nav-close')
 
-/*?? MENU SHOW */
+
+//?? MENU SHOW */
 /* Validate if constant exists */
 if (navToggle) {
     navToggle.addEventListener('click', () => {
@@ -12,13 +13,14 @@ if (navToggle) {
     })
 }
 
-/*?? MENU HIDDEN */
+//?? MENU HIDDEN */
 /* Validate if constant exists */
 if (navClose) {
     navClose.addEventListener('click', () => {
         navMenu.classList.remove('show-menu')
     })
 }
+
 
 /*?? REMOVE MENU MOBILE */
 const navLink = document.querySelectorAll('.nav__link')
@@ -30,7 +32,8 @@ const linkAction = () => {
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
-/*?? CHANGE BACKGROUND HEADER */
+
+//?? CHANGE BACKGROUND HEADER */
 const scrollHeader = () => {
     const header = document.getElementById('header')
     // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
@@ -39,7 +42,8 @@ const scrollHeader = () => {
 }
 window.addEventListener('scroll', scrollHeader)
 
-/*?? TESTIMONIAL SWIPER */
+
+//?? TESTIMONIAL SWIPER */
 let testimonialSwiper = new Swiper(".testimonial-swiper", {
     spaceBetween: 30,
     loop: 'true',
@@ -50,7 +54,8 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
     },
 });
 
-/*?? NEW SWIPER ??*/
+
+//?? NEW SWIPER ??*/
 let newSwiper = new Swiper(".new-swiper", {
     spaceBetween: 24,
     loop: 'true',
@@ -71,7 +76,7 @@ let newSwiper = new Swiper(".new-swiper", {
 });
 
 
-/*?? SCROLL SECTIONS ACTIVE LINK ??*/
+//?? SCROLL SECTIONS ACTIVE LINK ??*/
 const sections = document.querySelectorAll('section[id]')
 
 const scrollActive = () => {
@@ -88,20 +93,8 @@ const scrollActive = () => {
 }
 window.addEventListener('scroll', scrollActive)
 
-/*?? SHOW SCROLL UP ??*/
-// const scrollUp = () => {
-//     const scrollUp = document.getElementById('scroll-up')
-// When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
 
-
-
-//     if (window.scrollY >= 350) {
-//         scrollUp.classList.add('show-scroll');
-//         scrollUp.classList.remove('show-scroll');
-
-//     }
-// }
-// window.addEventListener('scroll', scrollUp)
+//?? SHOW SCROLL UP ??*/
 
 const scrollUp = () => {
     const scrollUp = document.getElementById('scroll-up');
@@ -160,7 +153,7 @@ if (navToggle) {
 
 
 
-/*?? DARK LIGHT THEME ??*/
+//?? DARK LIGHT THEME ??*/
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
 const iconTheme = 'bx-sun'
@@ -203,7 +196,7 @@ themeButton.addEventListener('click', () => {
 
 
 
-// Add Api //
+//? Add Api //
 
 const cardContiner = document.querySelector('#products');
 const featured = document.querySelector('#featured');
@@ -310,6 +303,8 @@ function myfeatured() {
 
 
 
+
+//??Form ?//
 
 
 
