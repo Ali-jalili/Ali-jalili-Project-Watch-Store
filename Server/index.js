@@ -24,10 +24,4 @@ app.listen(port, () => {
 
 
 
-// ,
-// "Image": " ",
-// "brand": "ZENITH",
-// "name": " ",
-// "price": " $"
-
 
