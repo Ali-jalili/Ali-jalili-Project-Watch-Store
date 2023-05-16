@@ -202,7 +202,7 @@ const cardContiner = document.querySelector('#products');
 const featured = document.querySelector('#featured');
 const newSwiperr = document.querySelector('#new-swiper');
 
-const urlApi = "https://api.apify.com/v2/datasets/Sntk8efIVdLtWUgud/items?clean=true&format=json";
+const urlApi = "http://localhost:5000/Products";
 
 myProducts()
 
@@ -218,26 +218,26 @@ function myProducts() {
             const div = document.createElement('div');
             div.className = 'products__container grid';
 
-            data.slice(13, 33).forEach((products) => {
+            data.filter((product) => product.Tag === 'new' || product.Tag === 'featured').forEach((products) => {
 
                 const divProdust = `<div class="products__card">
 
-                 <img src="${products.images_urls[0]}" alt="" class="products__img"></img>
+                 <img src="${products.Image}" alt="" class="products__img"></img>
 
                     <h3 class="products__title">${products.brand}</h3>
                     <h4 class="products__title">${products.title}</h4>
-                    <span class="products__price">${products.price} $  </span>
+                    <span class="products__price">${products.price}</span>
 
                     <button class="add-card products__button">
                         <i class='bx bx-shopping-bag'></i>
                     </button>
                 </div>`;
 
-                if (products.product_type === "Watch") {
-                    cardContiner.appendChild(div);
-                    div.innerHTML += divProdust
 
-                }
+                cardContiner.appendChild(div);
+                div.innerHTML += divProdust
+
+
 
 
             })
@@ -273,11 +273,11 @@ function myfeatured() {
                 const divProdust = `<div class="featured__card">
                     <span class="featured__tag">Sale</span>
 
-                    <img src="${products.images_urls[0]}" alt="" class="featured__img">
+                    <img src="${products.Image}" alt="" class="featured__img">
 
                     <div class="featured__data">
                         <h3 class="featured__title">${products.brand}</h3>
-                        <span class="featured__price">${products.price} $</span>
+                        <span class="featured__price">${products.price} </span>
                     </div>
 
                     <button class="add-card button featured__button">ADD TO CART</button>
@@ -285,11 +285,12 @@ function myfeatured() {
 
 
 
-                if (products.product_type === "Watch") {
 
-                    featured.append(div);
-                    div.innerHTML += divProdust
-                }
+
+                featured.append(div);
+                div.innerHTML += divProdust
+
+                console.log(products);
 
 
             })
