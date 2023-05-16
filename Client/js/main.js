@@ -306,6 +306,35 @@ function myfeatured() {
 
 //??Form ?//
 
+const sign_in_btn = document.querySelector("#sign-in-btn");
+const sign_up_btn = document.querySelector("#sign-up-btn");
+const container = document.querySelector(".container-form");
+const form = document.querySelector("#form");
+
+// Load form data from local storage
+if (localStorage.getItem("formState")) {
+    container.classList.add(localStorage.getItem("formState"));
+}
+
+sign_up_btn.addEventListener("click", () => {
+    container.classList.add("sign-up-mode");
+    localStorage.setItem("formState", "sign-up-mode");
+});
+
+sign_in_btn.addEventListener("click", () => {
+    container.classList.remove("sign-up-mode");
+    localStorage.setItem("formState", "");
+});
+
+// Save form data to local storage on submit
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    localStorage.setItem("formData", JSON.stringify(Object.fromEntries(formData)));
+    alert("Form submitted!");
+});
+
+
 
 
 
