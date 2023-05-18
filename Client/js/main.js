@@ -152,35 +152,7 @@ const showProduct = () => {
 
     dataCart.forEach((itemProduct) => {
 
-        // cartProducts.push(itemProduct);
 
-        // localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
-
-        // const cartProducts = JSON.parse(localStorage.getItem("myCartProducts")) || [];
-        // dataCart.forEach((itemProduct) => {
-        //     const existingProductIndex = cartProducts.findIndex((product) => product._id === itemProduct._id);
-        //     if (existingProductIndex !== -1) {
-        //         cartProducts[existingProductIndex].count += itemProduct.count;
-        //     } else {
-        //         cartProducts.push(itemProduct);
-        //     }
-        // });
-
-        // cartProducts را به localStorage ذخیره می‌کنیم
-        // localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
-
-        const cartProducts = JSON.parse(localStorage.getItem("myCartProducts")) || [];
-
-        dataCart.forEach((itemProduct) => {
-            const existingProductIndex = cartProducts.findIndex((product) => product._id === itemProduct._id);
-            if (existingProductIndex !== -1) {
-                cartProducts[existingProductIndex].count += itemProduct.count;
-            } else {
-                cartProducts.push(itemProduct);
-            }
-        });
-
-        localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
 
         const divCartProduct = `<section class="cart__card">
 
