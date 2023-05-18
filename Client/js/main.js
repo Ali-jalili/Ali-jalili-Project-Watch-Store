@@ -152,7 +152,33 @@ const showProduct = () => {
 
     dataCart.forEach((itemProduct) => {
 
-        cartProducts.push(itemProduct);
+        // cartProducts.push(itemProduct);
+
+        // localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
+
+        // const cartProducts = JSON.parse(localStorage.getItem("myCartProducts")) || [];
+        // dataCart.forEach((itemProduct) => {
+        //     const existingProductIndex = cartProducts.findIndex((product) => product._id === itemProduct._id);
+        //     if (existingProductIndex !== -1) {
+        //         cartProducts[existingProductIndex].count += itemProduct.count;
+        //     } else {
+        //         cartProducts.push(itemProduct);
+        //     }
+        // });
+
+        // cartProducts را به localStorage ذخیره می‌کنیم
+        // localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
+
+        const cartProducts = JSON.parse(localStorage.getItem("myCartProducts")) || [];
+
+        dataCart.forEach((itemProduct) => {
+            const existingProductIndex = cartProducts.findIndex((product) => product._id === itemProduct._id);
+            if (existingProductIndex !== -1) {
+                cartProducts[existingProductIndex].count += itemProduct.count;
+            } else {
+                cartProducts.push(itemProduct);
+            }
+        });
 
         localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
 
@@ -217,26 +243,38 @@ const showProduct = () => {
         });
     });
 
+    // const trashBtn = document.querySelectorAll('.cart__amount-trash');
+    // trashBtn.forEach((btn) => {
+    //     btn.addEventListener('click', () => {
+
+    //         const id = btn.dataset.id;
+    //         const newCart = dataCart.filter((item) => item._id !== id);
+
+    //         cartProducts.forEach((product, index) => {
+
+    //             if (product._id === id) {
+    //                 cartProducts.splice(index, 1);
+    //                 localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
+    //                 return;
+    //             }
+
+    //         })
+
+    //         dataCart = newCart;
+    //         showProduct();
+
+    //     });
+    // });
+
     const trashBtn = document.querySelectorAll('.cart__amount-trash');
     trashBtn.forEach((btn) => {
         btn.addEventListener('click', () => {
-
             const id = btn.dataset.id;
             const newCart = dataCart.filter((item) => item._id !== id);
-
-            cartProducts.forEach((product, index) => {
-
-                if (product._id === id) {
-                    cartProducts.splice(index, 1);
-                    localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
-                    return;
-                }
-
-            })
-
+            cartProducts = cartProducts.filter((item) => item._id !== id);
+            localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
             dataCart = newCart;
             showProduct();
-
         });
     });
 
@@ -347,7 +385,7 @@ async function myProducts() {
                     <h4 class="products__title">${products.name}</h4>
                     <span class="products__price">${products.price}</span>
 
-                    <button class="add-card products__button " data-id="${products._id}">
+                    <button class="add-card products__button" data-id="${products._id}">
                         <i class='bx bx-shopping-bag'></i>
                     </button>
                 </div>`;
@@ -358,9 +396,42 @@ async function myProducts() {
 
 
 
+    // const addBtn = document.querySelectorAll('.products__button');
+    // addBtn.forEach((btn) => {
+    //     btn.addEventListener('click', (e) => {
+
+    //         e.stopPropagation()
+
+    //         const id = btn.dataset.id;
+    //         const exists = dataCart.find((product) => product._id === id);
+
+    //         if (exists) {
+    //             const newData = dataCart.map((product) => {
+    //                 if (product._id === id) {
+    //                     return {
+    //                         ...product,
+    //                         count: product.count + 1,
+    //                     };
+    //                 }
+    //                 return product;
+    //             });
+    //             dataCart = newData;
+    //             showProduct();
+    //         } else {
+    //             const myProduct = dataProducts.find((product) => product._id === id);
+    //             myProduct.count = 1;
+    //             dataCart.push(myProduct);
+    //             showProduct();
+    //         }
+    //     });
+    // });
+
     const addBtn = document.querySelectorAll('.products__button');
     addBtn.forEach((btn) => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+
+            e.stopPropagation()
+
             const id = btn.dataset.id;
             const exists = dataCart.find((product) => product._id === id);
 
@@ -425,6 +496,8 @@ async function myfeatured() {
     const addBtn = document.querySelectorAll('.add-card');
     addBtn.forEach((btn) => {
         btn.addEventListener('click', (e) => {
+
+            e.stopPropagation()
 
             const exists = dataCart.find((product) => {
 
@@ -512,6 +585,8 @@ async function newProducts() {
     const addBtn = document.querySelectorAll('.new__button');
     addBtn.forEach((btn) => {
         btn.addEventListener('click', () => {
+
+            e.stopPropagation()
             const id = btn.dataset.id;
             const exists = dataCart.find((product) => product._id === id);
 
