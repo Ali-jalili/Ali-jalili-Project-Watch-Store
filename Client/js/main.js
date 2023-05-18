@@ -1,6 +1,4 @@
 
-
-
 //?? SHOW MENU */
 
 const navMenu = document.getElementById("nav-menu"),
@@ -8,6 +6,7 @@ const navMenu = document.getElementById("nav-menu"),
     navClose = document.getElementById("nav-close");
 
 //?? MENU SHOW */
+
 /* Validate if constant exists */
 if (navToggle) {
     navToggle.addEventListener("click", () => {
@@ -16,6 +15,7 @@ if (navToggle) {
 }
 
 //?? MENU HIDDEN */
+
 /* Validate if constant exists */
 if (navClose) {
     navClose.addEventListener("click", () => {
@@ -33,7 +33,9 @@ const linkAction = () => {
 };
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
+
 //?? CHANGE BACKGROUND HEADER */
+
 const scrollHeader = () => {
     const header = document.getElementById("header");
     // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
@@ -43,7 +45,9 @@ const scrollHeader = () => {
 };
 window.addEventListener("scroll", scrollHeader);
 
+
 //?? TESTIMONIAL SWIPER */
+
 let testimonialSwiper = new Swiper(".testimonial-swiper", {
     spaceBetween: 30,
     loop: "true",
@@ -54,11 +58,35 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
     },
 });
 
+
+
+
 //?? NEW SWIPER ??*/
+// let newSwiper = new Swiper(".new-swiper", {
+//     spaceBetween: 24,
+//     loop: "true",
+
+
+//     breakpoints: {
+//         576: {
+//             slidesPerView: 2,
+//         },
+//         768: {
+//             slidesPerView: 3,
+//         },
+//         1024: {
+//             slidesPerView: 4,
+//         },
+//     },
+// });
+
 let newSwiper = new Swiper(".new-swiper", {
     spaceBetween: 24,
-    loop: "true",
-
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
     breakpoints: {
         576: {
             slidesPerView: 2,
@@ -71,6 +99,7 @@ let newSwiper = new Swiper(".new-swiper", {
         },
     },
 });
+
 
 //?? SCROLL SECTIONS ACTIVE LINK ??*/
 const sections = document.querySelectorAll("section[id]");
@@ -87,6 +116,7 @@ const scrollActive = () => {
             );
     });
 };
+
 window.addEventListener("scroll", scrollActive);
 
 //?? SHOW SCROLL UP ??*/
@@ -105,16 +135,26 @@ const scrollUp = () => {
 
 window.addEventListener("scroll", scrollUp);
 
+
 //?? Cart ??//
 let dataCart = [];
+let cartProducts = [];
 const cart = document.getElementById("cart");
 const cartShop = document.getElementById("cart-shop");
 const cartClose = document.querySelector(".cart__close");
 const cartContainer = document.querySelector('.cart__container');
 
+// Add Card //
+
 const showProduct = () => {
+
     cartContainer.innerHTML = '';
+
     dataCart.forEach((itemProduct) => {
+
+        cartProducts.push(itemProduct);
+
+        localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
 
         const divCartProduct = `<section class="cart__card">
 
@@ -124,6 +164,7 @@ const showProduct = () => {
 
                     <div class="cart__details">
                         <h3 class="cart__title">${itemProduct.brand}</h3>
+                         <h5 class="cart__title">${itemProduct.name}</h5>
                         <span class="cart__price">${itemProduct.price}</span>
 
                         <div class="cart__amount">
@@ -153,6 +194,7 @@ const showProduct = () => {
 
     })
 
+
     const minusBtn = document.querySelectorAll('.minus');
     minusBtn.forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -178,20 +220,31 @@ const showProduct = () => {
     const trashBtn = document.querySelectorAll('.cart__amount-trash');
     trashBtn.forEach((btn) => {
         btn.addEventListener('click', () => {
+
             const id = btn.dataset.id;
             const newCart = dataCart.filter((item) => item._id !== id);
+
+            cartProducts.forEach((product, index) => {
+
+                if (product._id === id) {
+                    cartProducts.splice(index, 1);
+                    localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
+                    return;
+                }
+
+            })
+
             dataCart = newCart;
             showProduct();
+
         });
     });
 
 
 
+
+
 }
-
-
-
-
 
 if (cartShop) {
     cartShop.addEventListener("click", () => {
@@ -213,9 +266,10 @@ if (navToggle) {
     });
 }
 
-//? Add Card ?//
+
 
 //?? DARK LIGHT THEME ??*/
+
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
 const iconTheme = "bx-sun";
@@ -254,7 +308,8 @@ themeButton.addEventListener("click", () => {
 const sectionAbout = document.querySelector("section-About-box");
 themeButton.addEventListener("click", () => { });
 
-//? Add Api //
+
+//? Add API to connect to the database //
 
 const cardContiner = document.querySelector("#products");
 const featured = document.querySelector("#featured");
@@ -262,13 +317,6 @@ const newSwiperr = document.querySelector("#new-swiper");
 
 const urlApi = "http://localhost:5000/Products";
 
-// const addToCart = (data) => {
-//   console.log(data);
-// };
-
-const addToCart = () => {
-    console.log("hello");
-};
 
 let dataProducts = [];
 
@@ -308,61 +356,6 @@ async function myProducts() {
             div.innerHTML += divProdust;
         });
 
-    // const addBtn = document.querySelectorAll('.products__button');
-    // addBtn.forEach((btn) => {
-    //     btn.addEventListener('click', (e) => {
-
-    //         const exists = dataCart.find((product) => {
-
-    //             if (product._id === e.target.dataset.id) {
-    //                 return product;
-    //             }
-
-    //             return false;
-    //         })
-
-    //         if (exists) {
-    //             const newData = dataCart.map((product) => {
-    //                 if (product._id === e.target.dataset.id) {
-
-    //                     return {
-    //                         ...product, count: product.count + 1
-    //                     }
-
-
-    //                 }
-
-    //                 return product;
-    //             })
-
-    //             dataCart = newData
-    //             showProduct()
-    //             return;
-
-
-    //         }
-
-    //         const myproduct = dataProducts.find((product) => {
-
-    //             if (product._id === e.target.dataset.id) {
-    //                 return product;
-    //             }
-
-    //             return false;
-
-    //         })
-
-    //         myproduct.count = 1;
-
-
-
-    //         dataCart.push(myproduct);
-    //         showProduct()
-
-
-
-    //     })
-    // })
 
 
     const addBtn = document.querySelectorAll('.products__button');
@@ -393,6 +386,8 @@ async function myProducts() {
     });
 
 
+
+
 }
 
 async function myfeatured() {
@@ -411,6 +406,7 @@ async function myfeatured() {
 
                     <div class="featured__data">
                         <h3 class="featured__title">${products.brand}</h3>
+                        <h3 class="featured__title2">${products.name}</h3>
                         <span class="featured__price">${products.price} </span>
                     </div>
 
@@ -502,7 +498,13 @@ async function newProducts() {
       </div>
 
       <button class="button new__button" data-id="${products._id}">ADD TO CART</button>
-  </article>`;
+  </article>
+  
+  
+  
+  `;
+
+
 
             newSwiper.innerHTML += divProdust;
         });

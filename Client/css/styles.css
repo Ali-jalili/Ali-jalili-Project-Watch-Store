@@ -248,6 +248,14 @@ body.dark-theme {
   cursor: pointer;
 }
 
+.container-btn-swiper {
+  position: relative;
+    top: 5rem;
+    left: 45%;
+}
+
+
+
 @media screen and (max-width: 805px) {
 .nav__list{
   width: 100%;
@@ -256,7 +264,15 @@ body.dark-theme {
 
 }
 
+@media screen and (max-width: 749px) {
+.container-btn-swiper{
+      position: relative;
+    top: 5rem;
+    left: 42.5%;
+}
+  
 
+}
 
   
 
@@ -457,6 +473,14 @@ body.dark-theme {
 .featured__title {
   text-transform: uppercase;
   margin-bottom: var(--mb-0-75);
+}
+
+.featured__title2{
+  color: var(--text-color) ;
+  font-size: var(--smaller-font-size);
+  
+    padding: 10px;
+
 }
 
 .featured__price {
@@ -1329,6 +1353,8 @@ position: fixed;
   .footer__title {
     font-size: var(--h3-font-size);
   }
+
+ 
 }
 
 @media screen and (min-width: 992px) {
@@ -1733,7 +1759,7 @@ gap: 25px;
   justify-content: center;
   align-items: center;
   margin: 0 0.45rem;
-  color: #333;
+  color: var(--text-color);
   border-radius: 50%;
   border: 1px solid #333;
   text-decoration: none;
