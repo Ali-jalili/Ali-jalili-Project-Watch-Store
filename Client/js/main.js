@@ -153,6 +153,7 @@ const showProduct = () => {
     dataCart.forEach((itemProduct) => {
 
 
+        localStorage.setItem("myCartProducts", JSON.stringify(cartProducts));
 
         const divCartProduct = `<section class="cart__card">
 
