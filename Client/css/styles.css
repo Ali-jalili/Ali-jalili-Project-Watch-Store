@@ -254,12 +254,57 @@ body.dark-theme {
     left: 45%;
 }
 
+.show-total{
+  gap: 9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--body-color);
+    height: 12vh;
+}
 
+.btn-Buy{
+  background-color: var(--first-color);
+  color: var(--body-color);
+  border: none;
+  border-radius: 5px;
+    padding: 8px 25px;
+    transition: 0.3s ease;
+
+}
+
+.btn-Buy:hover{
+  background-color: var(--color-hover);
+}
 
 @media screen and (max-width: 805px) {
 .nav__list{
   width: 100%;
 }
+
+.show-total{
+  gap: 0;
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--body-color);
+    height: 12vh;
+    width: 88%;
+}
+  
+
+}
+
+@media screen and (max-width: 744px) {
+.nav__list{
+  width: 100%;
+}
+
+
   
 
 }
