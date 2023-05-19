@@ -1,12 +1,16 @@
-//?? SHOW MENU */
 document.addEventListener("DOMContentLoaded", showProduct);
+
+
+//?? SHOW MENU */
 
 const navMenu = document.getElementById("nav-menu"),
     navToggle = document.getElementById("nav-toggle"),
     navClose = document.getElementById("nav-close");
 
 //?? MENU SHOW */
+
 /* Validate if constant exists */
+
 if (navToggle) {
     navToggle.addEventListener("click", () => {
         navMenu.classList.add("show-menu");
@@ -14,6 +18,7 @@ if (navToggle) {
 }
 
 //?? MENU HIDDEN */
+
 /* Validate if constant exists */
 if (navClose) {
     navClose.addEventListener("click", () => {
@@ -29,9 +34,11 @@ const linkAction = () => {
     // When we click on each nav__link, we remove the show-menu class
     navMenu.classList.remove("show-menu");
 };
+
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
 //?? CHANGE BACKGROUND HEADER */
+
 const scrollHeader = () => {
     const header = document.getElementById("header");
     // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
@@ -42,6 +49,7 @@ const scrollHeader = () => {
 window.addEventListener("scroll", scrollHeader);
 
 //?? TESTIMONIAL SWIPER */
+
 let testimonialSwiper = new Swiper(".testimonial-swiper", {
     spaceBetween: 30,
     loop: "true",
@@ -53,6 +61,7 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
 });
 
 //?? NEW SWIPER ??*/
+
 let newSwiper = new Swiper(".new-swiper", {
     spaceBetween: 24,
     loop: "true",
@@ -75,6 +84,7 @@ let newSwiper = new Swiper(".new-swiper", {
 });
 
 //?? SCROLL SECTIONS ACTIVE LINK ??*/
+
 const sections = document.querySelectorAll("section[id]");
 
 const scrollActive = () => {
@@ -107,15 +117,55 @@ const scrollUp = () => {
 
 window.addEventListener("scroll", scrollUp);
 
+//?? DARK LIGHT THEME ??*/
+
+const themeButton = document.getElementById("theme-button");
+const darkTheme = "dark-theme";
+const iconTheme = "bx-sun";
+
+// Previously selected topic (if user selected)
+const selectedTheme = localStorage.getItem("selected-theme");
+const selectedIcon = localStorage.getItem("selected-icon");
+
+// We obtain the current theme that the interface has by validating the dark-theme class
+const getCurrentTheme = () =>
+    document.body.classList.contains(darkTheme) ? "dark" : "light";
+const getCurrentIcon = () =>
+    themeButton.classList.contains(iconTheme) ? "bx bx-moon" : "bx bx-sun";
+
+// We validate if the user previously chose a topic
+if (selectedTheme) {
+    // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+    document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+        darkTheme
+    );
+    themeButton.classList[selectedIcon === "bx bx-moon" ? "add" : "remove"](
+        iconTheme
+    );
+}
+
+// Activate / deactivate the theme manually with the button
+themeButton.addEventListener("click", () => {
+    // Add or remove the dark / icon theme
+    document.body.classList.toggle(darkTheme);
+    themeButton.classList.toggle(iconTheme);
+    // We save the theme and the current icon that the user chose
+    localStorage.setItem("selected-theme", getCurrentTheme());
+    localStorage.setItem("selected-icon", getCurrentIcon());
+});
+
+const sectionAbout = document.querySelector("section-About-box");
+themeButton.addEventListener("click", () => { });
+
 //?? Cart ??//
+
 let dataCart = [];
 const cart = document.getElementById("cart");
 const cartShop = document.getElementById("cart-shop");
 const cartClose = document.querySelector(".cart__close");
 const cartContainer = document.querySelector(".cart__container");
 
-
-
+/* Add to Cart */
 
 function showProduct() {
     cartContainer.innerHTML = "";
@@ -199,9 +249,17 @@ function showProduct() {
             const newCart = dataCart.filter((item) => item._id !== id);
             dataCart = newCart;
             localStorage.setItem("basketProducts", JSON.stringify(dataCart));
+
             showProduct();
+
+
+
         });
     });
+
+
+
+
 
     const totalPriceElement = document.getElementById("total-price");
     totalPriceElement.textContent = totalPrice.toFixed(2);
@@ -211,6 +269,10 @@ function showProduct() {
 
     function clearCart() {
         // پاک کردن محتوای سبد خرید از localStorage
+
+        if (!dataCart.length) {
+            return;
+        }
         localStorage.removeItem("basketProducts");
 
         // نمایش پیغام
@@ -233,9 +295,9 @@ function showProduct() {
         showProduct();
     }
 
-
-
 }
+
+/*Show Cart*/
 
 if (cartShop) {
     cartShop.addEventListener("click", () => {
@@ -249,9 +311,7 @@ if (cartClose) {
     });
 }
 
-
-
-
+/*Close the card when openi the menu*/
 
 if (navToggle) {
     navToggle.addEventListener("click", () => {
@@ -260,57 +320,14 @@ if (navToggle) {
     });
 }
 
-//? Add Card ?//
 
-//?? DARK LIGHT THEME ??*/
-const themeButton = document.getElementById("theme-button");
-const darkTheme = "dark-theme";
-const iconTheme = "bx-sun";
-
-// Previously selected topic (if user selected)
-const selectedTheme = localStorage.getItem("selected-theme");
-const selectedIcon = localStorage.getItem("selected-icon");
-
-// We obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () =>
-    document.body.classList.contains(darkTheme) ? "dark" : "light";
-const getCurrentIcon = () =>
-    themeButton.classList.contains(iconTheme) ? "bx bx-moon" : "bx bx-sun";
-
-// We validate if the user previously chose a topic
-if (selectedTheme) {
-    // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-    document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-        darkTheme
-    );
-    themeButton.classList[selectedIcon === "bx bx-moon" ? "add" : "remove"](
-        iconTheme
-    );
-}
-
-// Activate / deactivate the theme manually with the button
-themeButton.addEventListener("click", () => {
-    // Add or remove the dark / icon theme
-    document.body.classList.toggle(darkTheme);
-    themeButton.classList.toggle(iconTheme);
-    // We save the theme and the current icon that the user chose
-    localStorage.setItem("selected-theme", getCurrentTheme());
-    localStorage.setItem("selected-icon", getCurrentIcon());
-});
-
-const sectionAbout = document.querySelector("section-About-box");
-themeButton.addEventListener("click", () => { });
-
-//? Add Api //
+//? Add API to display Products//
 
 const cardContiner = document.querySelector("#products");
 const featured = document.querySelector("#featured");
 const newSwiperr = document.querySelector("#new-swiper");
 
 const urlApi = "http://localhost:5000/Products";
-
-
-
 
 let dataProducts = [];
 
@@ -323,6 +340,8 @@ async function fetchDataProducts() {
     myfeatured();
     newProducts();
 }
+
+
 
 async function myProducts() {
     const div = document.createElement("div");
@@ -341,7 +360,7 @@ async function myProducts() {
                  <img src="${products.Image}" alt="" class="products__img"></img>
 
                     <h3 class="products__title">${products.brand}</h3>
-                    <h4 class="products__title">${products.name}</h4>
+                    <h6 class="products__name">${products.name}</h6>
                     <span class="products__price">${products.price}</span>
 
                     <button class="add-card products__button " data-id="${products._id}">
@@ -353,7 +372,10 @@ async function myProducts() {
             div.innerHTML += divProdust;
 
         });
-
+    sr.reveal(
+        ".products__card",
+        { origin: "top", interval: 200 }
+    );
 
 
 
@@ -429,6 +451,7 @@ async function myfeatured() {
 
                     <div class="featured__data">
                         <h3 class="featured__title">${products.brand}</h3>
+                         <h6 class="featured__name">${products.name}</h6>
                         <span class="featured__price">${products.price} </span>
                     </div>
 
@@ -437,8 +460,12 @@ async function myfeatured() {
 
             featured.append(div);
             div.innerHTML += divProdust;
-        });
 
+        });
+    sr.reveal(
+        ".featured__card",
+        { origin: "bottom", interval: 200 }
+    );
 
     const addBtn = document.querySelectorAll(".add-card");
     addBtn.forEach((btn) => {
@@ -504,7 +531,7 @@ async function newProducts() {
 
       <div class="new__data">
           <h3 class="new__title">${products.brand}</h3>
-          <h5 class="new__title">${products.name}</h5>
+          <h6 class="new__name">${products.name}</h6>
           <span class="new__price">${products.price}</span>
       </div>
 
@@ -513,6 +540,11 @@ async function newProducts() {
 
             newSwiper.innerHTML += divProdust;
         });
+
+    sr.reveal(
+        ".new-swiper",
+        { origin: "", interval: 200 }
+    );
 
     const addBtn = document.querySelectorAll(".new__button");
     addBtn.forEach((btn) => {
@@ -576,40 +608,8 @@ async function newProducts() {
     });
 }
 
-//??Form ?//
-
-const sign_in_btn = document.querySelector("#sign-in-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container-form");
-const form = document.querySelector("#form");
-
-// Load form data from local storage
-if (localStorage.getItem("formState")) {
-    container.classList.add(localStorage.getItem("formState"));
-}
-
-sign_up_btn.addEventListener("click", () => {
-    container.classList.add("sign-up-mode");
-    localStorage.setItem("formState", "sign-up-mode");
-});
-
-sign_in_btn.addEventListener("click", () => {
-    container.classList.remove("sign-up-mode");
-    localStorage.setItem("formState", "");
-});
-
-// Save form data to local storage on submit
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(form);
-    localStorage.setItem(
-        "formData",
-        JSON.stringify(Object.fromEntries(formData))
-    );
-    alert("Form submitted!");
-});
-
 // ایجاد یک شیء ScrollReveal جدید
+
 const sr = ScrollReveal({
     distance: "60px",
     duration: 2500,
@@ -617,6 +617,7 @@ const sr = ScrollReveal({
 });
 
 // تعریف یک انیمیشن برای المان های مورد نظر
+
 sr.reveal(".home__social-link", { origin: "top", interval: 400 });
 sr.reveal(".home__title ", { origin: "left", delay: 300 });
 sr.reveal(".home__description ", { origin: "left", delay: 200 });
@@ -625,7 +626,7 @@ sr.reveal(".home__img", { origin: "right", delay: 200 });
 sr.reveal(".story__img", { origin: "left", delay: 500 });
 
 sr.reveal(
-    ".section__title, .story__title, .story__description, .button--small  ",
+    ".section__title, .story__title, .story__description, .button--small",
     { origin: "right", interval: 300 }
 );
 
@@ -644,109 +645,34 @@ sr.reveal(".footer__container ", { origin: "bottom", interval: 300 });
 
 
 
-//  const addBtn = document.querySelectorAll('.products__button');
-    // addBtn.forEach((btn) => {
-    //     btn.addEventListener('click', (e) => {
 
-    //         const exists = dataCart.find((product) => {
+//??Form ?//
 
-    //             if (product._id === e.target.dataset.id) {
-    //                 return product;
-    //             }
+const sign_in_btn = document.querySelector("#sign-in-btn");
+const sign_up_btn = document.querySelector("#sign-up-btn");
+const container = document.querySelector(".container-form");
+const form = document.querySelector("#form");
 
-    //             return false;
-    //         })
 
-    //         if (exists) {
-    //             const newData = dataCart.map((product) => {
-    //                 if (product._id === e.target.dataset.id) {
+// Load form data from local storage
 
-    //                     return {
-    //                         ...product, count: product.count + 1
-    //                     }
+if (localStorage.getItem("formState")) {
+    container.classList.add(localStorage.getItem("formState"));
+}
 
-    //                 }
+sign_up_btn.addEventListener("click", () => {
+    container.classList.add("sign-up-mode");
+    localStorage.setItem("formState", "sign-up-mode");
+});
 
-    //                 return product;
-    //             })
+sign_in_btn.addEventListener("click", () => {
+    container.classList.remove("sign-up-mode");
+    localStorage.setItem("formState", "");
+});
 
-    //             dataCart = newData
-    //             showProduct()
-    //             return;
 
-    //         }
 
-    //         const myproduct = dataProducts.find((product) => {
 
-    //             if (product._id === e.target.dataset.id) {
-    //                 return product;
-    //             }
 
-    //             return false;
 
-    //         })
 
-    //         myproduct.count = 1;
-
-    //         dataCart.push(myproduct);
-    //         showProduct()
-
-    //     })
-    // })
-
-    // const addBtn = document.querySelectorAll(".products__button");
-    // addBtn.forEach((btn) => {
-    //     btn.addEventListener("click", () => {
-    //         const id = btn.dataset.id;
-    //         const exists = dataCart.find((product) => product._id === id);
-
-    //         if (exists) {
-    //             const newData = dataCart.map((product) => {
-    //                 if (product._id === id) {
-    //                     return {
-    //                         ...product,
-    //                         count: product.count + 1,
-    //                     };
-    //                 }
-    //                 return product;
-    //             });
-    //             dataCart = newData;
-    //             localStorage.setItem("basketProducts", JSON.stringify(dataCart));
-    //             showProduct();
-    //         } else {
-    //             const myProduct = dataProducts.find((product) => product._id === id);
-    //             myProduct.count = 1;
-    //             dataCart.push(myProduct);
-    //             localStorage.setItem("basketProducts", JSON.stringify(dataCart));
-    //             showProduct();
-    //         }
-    //     });
-    // });
-
-    // const addBtn = document.querySelectorAll(".products__button");
-    // addBtn.forEach((btn) => {
-    //     btn.addEventListener("click", () => {
-    //         const id = btn.dataset.id;
-    //         const exists = dataCart.find((product) => product._id === id);
-
-    //         if (exists) {
-    //             const newData = dataCart.map((product) => {
-    //                 if (product._id === id) {
-    //                     return {
-    //                         ...product,
-    //                         count: product.count + 1,
-    //                     };
-    //                 }
-    //                 return product;
-    //             });
-    //             dataCart = newData;
-    //         } else {
-    //             const myProduct = dataProducts.find((product) => product._id === id);
-    //             myProduct.count = 1;
-    //             dataCart.push(myProduct);
-    //         }
-
-    //         localStorage.setItem("basketProducts", JSON.stringify(dataCart));
-    //         showProduct();
-    //     });
-    // });
