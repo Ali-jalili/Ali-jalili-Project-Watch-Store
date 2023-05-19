@@ -57,6 +57,10 @@ let newSwiper = new Swiper(".new-swiper", {
     spaceBetween: 24,
     loop: "true",
 
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
     breakpoints: {
         576: {
             slidesPerView: 2,
@@ -305,9 +309,7 @@ const newSwiperr = document.querySelector("#new-swiper");
 
 const urlApi = "http://localhost:5000/Products";
 
-// const addToCart = (data) => {
-//   console.log(data);
-// };
+
 
 
 let dataProducts = [];
@@ -325,7 +327,7 @@ async function fetchDataProducts() {
 async function myProducts() {
     const div = document.createElement("div");
     div.className = "products__container grid";
-    // localStorage.setItem("addedToCart", "false");
+
 
 
     dataProducts

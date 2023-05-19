@@ -5,17 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
 
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <!--?? Icon URL  -->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+    <!--? CDN Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--?? CDN Swiper  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!--?? Style CSS   -->
     <link rel="stylesheet" href="./css/styles.css">
+
+
+
     <title>About Us</title>
 </head>
 
 <body>
+
+    <!--?? HEADER  ?---->
     <header class="header" id="header">
+
+        <!--Menu  -->
+
         <nav class="nav container">
             <a href="#" class="nav__logo">
                 <i class='bx bxs-watch nav__logo-icon'></i> Chrono
@@ -24,8 +39,9 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="./index.html" class="nav__link active-link">Home</a>
+                        <a href="#home" class="nav__link active-link">Home</a>
                     </li>
+
                     <li class="nav__item">
                         <a href="./About Us.html" class="nav__link">About Us</a>
                     </li>
@@ -33,21 +49,35 @@
                         <a href="./Contact Us.html" class="nav__link">Contact Us</a>
                     </li>
                 </ul>
-
+                <!-- close menu -->
                 <div class="nav__close" id="nav-close">
+
                     <i class='bx bx-x'></i>
+
                 </div>
             </div>
 
             <div class="nav__btns">
+
                 <!-- Theme change button -->
                 <i class='bx bx-moon change-theme' id="theme-button"></i>
 
 
+
+                <!--Show Menu  -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+
+                <!--Login Page-->
+                <div>
+                    <a class="nav__shop" id="cart-shop" href="./Login and SignUp.html"><i
+                            class='bx bxs-user-account'></i></a>
+                </div>
             </div>
         </nav>
-
     </header>
+
 
     <main cloas="main">
 
@@ -261,13 +291,13 @@
     </footer>
 
 
-
+    <script src="./js/main.js"></script>
 
     <!--=============== SWIPER JS ===============-->
-    <script src="./js/swiper-bundle.min.js"></script>
+
 
     <!--=============== MAIN JS ===============-->
-    <script src="./js/main.js"></script>
+
 
 </body>
 
