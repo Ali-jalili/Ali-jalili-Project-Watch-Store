@@ -112,6 +112,7 @@ const cartContainer = document.querySelector(".cart__container");
 
 
 
+
 function showProduct() {
     cartContainer.innerHTML = "";
     const products = JSON.parse(localStorage.getItem("basketProducts")) || [];
@@ -201,6 +202,34 @@ function showProduct() {
     const totalPriceElement = document.getElementById("total-price");
     totalPriceElement.textContent = totalPrice.toFixed(2);
 
+    const buyBtn = document.querySelector(".btn-Buy");
+    buyBtn.addEventListener("click", clearCart);
+
+    function clearCart() {
+        // پاک کردن محتوای سبد خرید از localStorage
+        localStorage.removeItem("basketProducts");
+
+        // نمایش پیغام
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Your Purchase is Complete',
+            showConfirmButton: false,
+            timer: 1500,
+            customClass: {
+                popup: 'my-custom-popup',
+                title: 'my-custom-title',
+                content: 'my-custom-content',
+                closeButton: 'my-custom-close-button',
+                loader: '.swal2-icon.swal2-success'
+            }
+        });
+
+        // نمایش سبد خرید به روز شده
+        showProduct();
+    }
+
+
 
 }
 
@@ -217,9 +246,7 @@ if (cartClose) {
 }
 
 
-let modal = () => {
 
-}
 
 
 if (navToggle) {
@@ -282,9 +309,6 @@ const urlApi = "http://localhost:5000/Products";
 //   console.log(data);
 // };
 
-const addToCart = () => {
-    console.log("hello");
-};
 
 let dataProducts = [];
 
@@ -354,7 +378,7 @@ async function myProducts() {
                         Swal.fire({
                             position: 'top',
                             icon: 'success',
-                            title: 'The product has been added to the cart',
+                            title: 'The product has been added to the Cart',
                             showConfirmButton: false,
                             timer: 1500,
                             customClass: {
@@ -437,7 +461,7 @@ async function myfeatured() {
                         Swal.fire({
                             position: 'top',
                             icon: 'success',
-                            title: 'The product has been added to the cart',
+                            title: 'The product has been added to the Cart',
                             showConfirmButton: false,
                             timer: 1500,
                             customClass: {
@@ -522,7 +546,7 @@ async function newProducts() {
                         Swal.fire({
                             position: 'top',
                             icon: 'success',
-                            title: 'The product has been added to the cart',
+                            title: 'The product has been added to the Cart',
                             showConfirmButton: false,
                             timer: 1500,
                             customClass: {
