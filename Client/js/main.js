@@ -110,7 +110,7 @@ const cartShop = document.getElementById("cart-shop");
 const cartClose = document.querySelector(".cart__close");
 const cartContainer = document.querySelector(".cart__container");
 
-// let addedToCart = localStorage.getItem("addedToCart") === "true";
+
 
 function showProduct() {
     cartContainer.innerHTML = "";
@@ -118,7 +118,6 @@ function showProduct() {
     dataCart = products
 
     let totalPrice = 0; // جمع قیمت‌ها
-
 
 
     products.forEach((itemProduct) => {
@@ -217,6 +216,12 @@ if (cartClose) {
     });
 }
 
+
+let modal = () => {
+
+}
+
+
 if (navToggle) {
     navToggle.addEventListener("click", () => {
         navMenu.classList.add("show-menu");
@@ -296,6 +301,8 @@ async function fetchDataProducts() {
 async function myProducts() {
     const div = document.createElement("div");
     div.className = "products__container grid";
+    // localStorage.setItem("addedToCart", "false");
+
 
     dataProducts
         .filter((product) => product.Tag === undefined)
@@ -318,28 +325,11 @@ async function myProducts() {
 
             cardContiner.appendChild(div);
             div.innerHTML += divProdust;
+
         });
 
 
 
-    // const addBtn = document.querySelectorAll(".products__button");
-    // addBtn.forEach((btn) => {
-    //     btn.addEventListener("click", () => {
-    //         const id = btn.dataset.id;
-    //         const existingProduct = dataCart.find((product) => product._id === id);
-
-    //         if (existingProduct) {
-    //             existingProduct.count++;
-    //         } else {
-    //             const newProduct = dataProducts.find((product) => product._id === id);
-    //             newProduct.count = 1;
-    //             dataCart.push(newProduct);
-    //         }
-
-    //         localStorage.setItem("basketProducts", JSON.stringify(dataCart));
-    //         showProduct();
-    //     });
-    // });
 
     const addBtn = document.querySelectorAll(".products__button");
     addBtn.forEach((btn) => {
@@ -353,10 +343,44 @@ async function myProducts() {
                 const newProduct = dataProducts.find((product) => product._id === id);
                 newProduct.count = 1;
                 dataCart.push(newProduct);
+
+                const addedToCart = localStorage.getItem("addedToCart");
+                if (addedToCart && addedToCart === "true") {
+                    // Display the alert message after a slight delay
+                    setTimeout(() => {
+
+
+
+                        Swal.fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: 'The product has been added to the cart',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            customClass: {
+                                popup: 'my-custom-popup',
+                                title: 'my-custom-title',
+                                content: 'my-custom-content',
+                                closeButton: 'my-custom-close-button',
+                                loader: '.swal2-icon.swal2-success'
+                            }
+
+                        });
+
+
+                    }, 10);
+
+                } else {
+                    localStorage.setItem("addedToCart", "true");
+                }
+
             }
+
+
 
             localStorage.setItem("basketProducts", JSON.stringify(dataCart));
             showProduct();
+
         });
     });
 
@@ -402,6 +426,36 @@ async function myfeatured() {
                 const newProduct = dataProducts.find((product) => product._id === id);
                 newProduct.count = 1;
                 dataCart.push(newProduct);
+
+                const addedToCart = localStorage.getItem("addedToCart");
+                if (addedToCart && addedToCart === "true") {
+                    // Display the alert message after a slight delay
+                    setTimeout(() => {
+
+
+
+                        Swal.fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: 'The product has been added to the cart',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            customClass: {
+                                popup: 'my-custom-popup',
+                                title: 'my-custom-title',
+                                content: 'my-custom-content',
+                                closeButton: 'my-custom-close-button',
+                                loader: '.swal2-icon.swal2-success'
+                            }
+
+                        });
+
+
+                    }, 10);
+
+                } else {
+                    localStorage.setItem("addedToCart", "true");
+                }
             }
 
             localStorage.setItem("basketProducts", JSON.stringify(dataCart));
@@ -457,9 +511,41 @@ async function newProducts() {
                 const myProduct = dataProducts.find((product) => product._id === id);
                 myProduct.count = 1;
                 dataCart.push(myProduct);
-                localStorage.setItem("basketProducts", JSON.stringify(dataCart));
-                showProduct();
+
+                const addedToCart = localStorage.getItem("addedToCart");
+                if (addedToCart && addedToCart === "true") {
+                    // Display the alert message after a slight delay
+                    setTimeout(() => {
+
+
+
+                        Swal.fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: 'The product has been added to the cart',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            customClass: {
+                                popup: 'my-custom-popup',
+                                title: 'my-custom-title',
+                                content: 'my-custom-content',
+                                closeButton: 'my-custom-close-button',
+                                loader: '.swal2-icon.swal2-success'
+                            }
+
+                        });
+
+
+                    }, 10);
+
+                } else {
+                    localStorage.setItem("addedToCart", "true");
+                }
+
             }
+
+            localStorage.setItem("basketProducts", JSON.stringify(dataCart));
+            showProduct();
         });
     });
 }
