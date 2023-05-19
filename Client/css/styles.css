@@ -1,7 +1,7 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-/*=============== VARIABLES CSS ===============*/
+/*?=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem;
 
@@ -60,7 +60,7 @@
   }
 }
 
-/*=============== BASE ===============*/
+/*?=============== BASE ===============*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -110,7 +110,7 @@ button {
   outline: none;
 }
 
-/*=============== THEME ===============*/
+/*?=============== THEME ===============*/
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
   --first-color: hsl(199, 46%, 59%);
@@ -157,7 +157,7 @@ body.dark-theme {
   background: hsl(0, 0%, 30%);
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
+/*?=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1024px;
   margin-left: var(--mb-1-5);
@@ -197,7 +197,7 @@ body.dark-theme {
   background-color: var(--first-color);
 }
 
-/*=============== HEADER & NAV ===============*/
+/*?=============== HEADER & NAV ===============*/
 .header {
   width: 100%;
   background: transparent;
@@ -205,7 +205,6 @@ body.dark-theme {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  /*For animation dark mode*/
   transition: .4s;
 }
 
@@ -311,7 +310,7 @@ body.dark-theme {
 
 @media screen and (max-width: 749px) {
 .container-btn-swiper{
-      position: relative;
+    position: relative;
     top: 5rem;
     left: 42.5%;
 }
@@ -320,8 +319,6 @@ body.dark-theme {
 }
 
   
-
-
 @media screen and (max-width: 808px) {
   .nav__menu {
     position: fixed;
@@ -367,18 +364,17 @@ body.dark-theme {
   right: 0;
 }
 
-/* Change background header */
+/*? Change background header */
+
 .scroll-header {
   background-color: var(--body-color);
   box-shadow: 0 1px 4px hsla(0, 4%, 15%, .10);
 }
 
-/* Active link */
-/* .active-link {
-  color: var(--first-color);
-} */
 
-/*=============== HOME ===============*/
+
+/*?=============== HOME ===============*/
+
 .home__container {
   position: relative;
   row-gap: 2.5rem;
@@ -462,20 +458,14 @@ body.dark-theme {
   background-color: var(--button-color-alt);
 }
 
-.button--gray {
-  background-color: hsl(0, 0%, 75%);
-  color: var(--title-color);
-}
 
-.button--gray:hover {
-  background-color: hsl(0, 0%, 63%);
-}
 
 .button--small {
   padding: 1rem 1.5rem;
 }
 
-/*=============== FEATURED ===============*/
+/*?=============== FEATURED ===============*/
+
 .featured__container {
   row-gap: 2.5rem;
 }
@@ -554,7 +544,8 @@ body.dark-theme {
   margin-bottom: var(--mb-1-5);
 }
 
-/*=============== STORY ===============*/
+/*?=============== STORY ===============*/
+
 .story__container {
   row-gap: 7.5rem;
 }
@@ -591,7 +582,8 @@ body.dark-theme {
 
 
 
-/*=============== PRODUCTS ===============*/
+/*?=============== PRODUCTS ===============*/
+
 .products__container {
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
@@ -645,7 +637,8 @@ body.dark-theme {
   box-shadow: 0 8px 32px hsla(0, 0%, 10%, .1);
 }
 
-/*=============== TESTIMONIAL ===============*/
+/*?=============== TESTIMONIAL ===============*/
+
 .testimonial__container {
   row-gap: 4rem;
 }
@@ -748,7 +741,8 @@ body.dark-theme {
   left: 4rem;
 }
 
-/*=============== NEW ===============*/
+/*?=============== NEW ===============*/
+
 .new__card {
   position: relative;
   text-align: center;
@@ -824,7 +818,16 @@ body.dark-theme {
   margin-bottom: var(--mb-1-5);
 }
 
-/*=============== NEWSLETTER ===============*/
+
+.products__name, .featured__name, .new__name{
+  color: var(--text-color);
+    /* font-size: var(--normal-font-size); */
+    margin-bottom: 13px;
+    font-size: var(--small-font-size);
+}
+
+/*?=============== NEWSLETTER ===============*/
+
 .newsletter__bg {
   background-color: var(--first-color);
   padding: 3rem 1.5rem;
@@ -856,7 +859,8 @@ body.dark-theme {
   color: hsl(0, 0%, 15%);
 }
 
-/*=============== FOOTER ===============*/
+/*?=============== FOOTER ===============*/
+
 .footer__container {
   row-gap: 2rem;
   border-bottom: 1px solid var(--border-color);
@@ -908,7 +912,8 @@ body.dark-theme {
   color: var(--text-color-light);
 }
 
-/*=============== SCROLL UP ===============*/
+/*?=============== SCROLL UP ===============*/
+
 .scrollup {
   position: fixed;
   right: 1rem;
@@ -936,7 +941,8 @@ body.dark-theme {
   bottom: 3rem;
 }
 
-/*=============== SCROLL BAR ===============*/
+/*?=============== SCROLL BAR ===============*/
+
 ::-webkit-scrollbar {
   width: .6rem;
   background: hsl(0, 0%, 74%);
@@ -946,7 +952,8 @@ body.dark-theme {
   background: hsl(0, 0%, 17%);
 }
 
-/*=============== CART ===============*/
+/*?=============== CART ===============*/
+
 .cart {
   position: fixed;
   background-color: var(--body-color);
@@ -1083,6 +1090,9 @@ body.dark-theme {
     color: #EEEEEE;
 }
 
+
+/* Pop Up */
+
 .my-custom-popup {
   background-color: #ffffff;
   border: none;
@@ -1106,7 +1116,6 @@ body.dark-theme {
   
 
 }
-
 
 
 .swal2-icon.swal2-success .swal2-success-ring {
@@ -1142,7 +1151,8 @@ body.dark-theme {
   }
 }
 
-/*=============== BREAKPOINTS ===============*/
+/*?=============== BREAKPOINTS ===============*/
+
 /* For small devices */
 @media screen and (max-width: 320px) {
   .container {
@@ -1359,9 +1369,6 @@ body.dark-theme {
   }
 
  
-
-
- 
 }
 
 /* For large devices */
@@ -1400,11 +1407,6 @@ body.dark-theme {
 .section-About{
   margin-top: 10rem;
 }
-
-
-
-
-
 
 
 .title-Vision{
@@ -1489,6 +1491,7 @@ display: flex;
 }
   
 /*??---- Contact US ------*/
+
 .section-Contact{
     background-color: var(--first-color);
   padding: 10px 10px;
@@ -1588,13 +1591,12 @@ gap: 25px;
   
   
 }
+
 }
 
 
 
 /*?? Form */
-
-
 
 .container-form{
   position: relative;
@@ -1759,7 +1761,6 @@ gap: 25px;
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  /* background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%); */
   background-color: var(--first-color);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
@@ -1968,6 +1969,8 @@ gap: 25px;
     transform: translate(-50%, 0);
   }
 }
+
+
 
 @media (max-width: 570px) {
   .my-form {
