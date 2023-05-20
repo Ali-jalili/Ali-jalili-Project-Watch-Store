@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!--? CDN scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--?? Icon URL  -->
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
@@ -25,14 +29,21 @@
 </head>
 
 <body>
+
     <header class="header" id="header">
+
+        <!--? Menu  -->
+
         <nav class="nav container">
+
             <a href="#" class="nav__logo">
                 <i class='bx bxs-watch nav__logo-icon'></i> Chrono
             </a>
 
             <div class="nav__menu" id="nav-menu">
+
                 <ul class="nav__list">
+
                     <li class="nav__item">
                         <a href="./index.html" class="nav__link active-link">Home</a>
                     </li>
@@ -40,9 +51,11 @@
                     <li class="nav__item">
                         <a href="./About Us.html" class="nav__link">About Us</a>
                     </li>
+
                     <li class="nav__item">
                         <a href="./Contact Us.html" class="nav__link">Contact Us</a>
                     </li>
+
                 </ul>
 
                 <div class="nav__close" id="nav-close">
@@ -50,6 +63,7 @@
                     <i class='bx bx-x'></i>
 
                 </div>
+
             </div>
 
             <div class="nav__btns">
@@ -67,32 +81,49 @@
                     <a class="nav__shop" id="cart-shop" href="./Login and SignUp.html"><i
                             class='bx bxs-user-account'></i></a>
                 </div>
+
             </div>
+
         </nav>
+
     </header>
 
     <main class="container-form">
 
         <div class="forms-container">
 
+            <!--? Form  -->
+
             <div class="signin-signup">
 
+                <!-- Sign in Form  -->
+
                 <form action="#" class="my-form sign-in-form">
+
                     <h2 class="title-form">Sign in</h2>
+
                     <div class="input-field">
-                        <i class="fas fa-user"></i>
+
+                        <i class='bx bxs-user'></i>
+
                         <input type="text" placeholder="Username" />
+
                     </div>
 
                     <div class="input-field">
-                        <i class="fas fa-lock"></i>
+
+                        <i class='bx bxs-lock'></i>
+
                         <input type="password" placeholder="Password" />
+
                     </div>
 
                     <input type="submit" value="Login" class="btn-form solid" />
+
                     <p class="social-text">Or Sign in with social platforms</p>
 
                     <div class="social-media">
+
                         <a href="#" class="social-icon">
                             <i class='bx bxl-facebook-circle'></i>
                         </a>
@@ -100,26 +131,48 @@
                         <a href="#" class="social-icon">
                             <i class='bx bxl-google'></i>
                         </a>
+
                         <a href="#" class="social-icon">
                             <i class='bx bxl-linkedin'></i>
                         </a>
+
                     </div>
 
                 </form>
 
+                <!-- Sign Up Form -->
+
                 <form action="#" class="my-form sign-up-form">
+
                     <h2 class="title-form">Sign up</h2>
+
                     <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username" />
+
+                        <i class='bx bxs-user'></i>
+                        <input type="text" placeholder="Username" name="username" />
+
                     </div>
+
                     <div class="input-field">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" />
+
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" placeholder="Email" name="email" />
+
                     </div>
+
                     <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" />
+
+                        <i class='bx bx-envelope'></i>
+                        <input type="text" placeholder="Phone" name="phone">
+
+                    </div>
+
+                    <div class="input-field">
+
+                        <i class='bx bxs-lock'></i>
+
+                        <input type="password" placeholder="Password" name="password" />
+
                     </div>
 
                     <input type="submit" class="btn-form solid" value="Sign up" />
@@ -127,6 +180,7 @@
                     <p class="social-text">Or Sign up with social Platforms</p>
 
                     <div class="social-media">
+
                         <a href="#" class="social-icon">
                             <i class='bx bxl-facebook-circle'></i>
                         </a>
@@ -134,12 +188,15 @@
                         <a href="#" class="social-icon">
                             <i class='bx bxl-google'></i>
                         </a>
+
                         <a href="#" class="social-icon">
                             <i class='bx bxl-linkedin'></i>
                         </a>
+
                     </div>
 
                 </form>
+
 
             </div>
         </div>

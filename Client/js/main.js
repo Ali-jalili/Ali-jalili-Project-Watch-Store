@@ -1,4 +1,6 @@
+
 document.addEventListener("DOMContentLoaded", showProduct);
+
 
 
 //?? SHOW MENU */
@@ -619,6 +621,7 @@ const sr = ScrollReveal({
 // تعریف یک انیمیشن برای المان های مورد نظر
 
 sr.reveal(".home__social-link", { origin: "top", interval: 400 });
+
 sr.reveal(".home__title ", { origin: "left", delay: 300 });
 sr.reveal(".home__description ", { origin: "left", delay: 200 });
 sr.reveal(".home__img", { origin: "right", delay: 200 });
@@ -636,14 +639,10 @@ sr.reveal(
     { origin: "left", interval: 300 }
 );
 
-sr.reveal(
-    ".newsletter__title, .newsletter__description, .newsletter__input, .btn2",
-    { origin: "bottom", interval: 300 }
+sr.reveal(".newsletter__title, .newsletter__description, .newsletter__input, .btn2", { origin: "bottom", interval: 300 }
 );
 
 sr.reveal(".footer__container ", { origin: "bottom", interval: 300 });
-
-
 
 
 //??Form ?//
@@ -663,6 +662,8 @@ if (localStorage.getItem("formState")) {
 sign_up_btn.addEventListener("click", () => {
     container.classList.add("sign-up-mode");
     localStorage.setItem("formState", "sign-up-mode");
+
+    console.log("safafaf");
 });
 
 sign_in_btn.addEventListener("click", () => {
@@ -671,8 +672,71 @@ sign_in_btn.addEventListener("click", () => {
 });
 
 
+// Save form data to local storage on submit
+// form.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//     const formData = new FormData(form);
+//     localStorage.setItem(
+//         "formData",
+//         JSON.stringify(Object.fromEntries(formData))
+//     );
+//     alert("Form submitted!");
+// });
 
 
 
 
+const signUpForm = document.querySelector('.sign-up-form');
+
+signUpForm.addEventListener('submit', function (event) {
+    // Prevent default form submission behavior
+    event.preventDefault();
+
+    // Get form data
+    const formData = {
+        username: signUpForm.querySelector('input[name=username]').value,
+        email: signUpForm.querySelector('input[name=email]').value,
+        phone: signUpForm.querySelector('input[name=phone]').value,
+        password: signUpForm.querySelector('input[name=password]').value
+    };
+
+    // Check if form fields are empty
+    if (formData.username === '' || formData.email === '' || formData.phone === '' || formData.password === '') {
+        // Display error message
+        alert('Please fill in all fields!');
+        return;
+    }
+
+    // Send form data using Axios
+    axios.post('http://localhost:5000/users/register', formData)
+
+        .then(function (response) {
+
+
+            // Handle successful registration
+            console.log('Registration successful!');
+
+            console.log(response.data); // "success"
+            console.log(response.data.message);
+
+            // Clear form fields
+            signUpForm.querySelector('input[name=username]').value = '';
+            signUpForm.querySelector('input[name=email]').value = '';
+            signUpForm.querySelector('input[name=phone]').value = '';
+            signUpForm.querySelector('input[name=password]').value = '';
+            setTimeout(() => {
+                alert('vxzv')
+            }, 100);
+        })
+
+
+
+
+        .catch(function (error) {
+            // Handle registration error
+            console.log('Registration failed: ' + error);
+        });
+
+
+});
 
