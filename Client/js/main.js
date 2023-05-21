@@ -725,7 +725,7 @@ signUpForm.addEventListener('submit', function (event) {
             signUpForm.querySelector('input[name=phone]').value = '';
             signUpForm.querySelector('input[name=password]').value = '';
             setTimeout(() => {
-                alert('vxzv')
+                alert('dvdsv')
             }, 100);
         })
 
@@ -739,4 +739,53 @@ signUpForm.addEventListener('submit', function (event) {
 
 
 });
+
+
+const signInForm = document.querySelector('.sign-in-form');
+
+signInForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const username = signInForm.querySelector('input[type="text"]').value;
+    const password = signInForm.querySelector('input[type="password"]').value;
+
+    try {
+        const response = await axios.post('http://localhost:5000/users/login', { username, password });
+
+        if (response.status === 200) {
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Login successful.'
+            })
+
+            setTimeout(() => {
+                window.location.href = '/Client/index.html';
+            }, 1100);
+
+
+        } else {
+            alert(response.data);
+
+
+        }
+    } catch (error) {
+        alert(error.response.data);
+
+
+    }
+});
+
 
