@@ -620,7 +620,7 @@ const sr = ScrollReveal({
 
 // تعریف یک انیمیشن برای المان های مورد نظر
 
-sr.reveal(".home__social-link", { origin: "top", interval: 400 });
+sr.reveal(".home__social-link i", { dalay: 400, origin: 'top', interval: 200 });
 
 sr.reveal(".home__title ", { origin: "left", delay: 300 });
 sr.reveal(".home__description ", { origin: "left", delay: 200 });

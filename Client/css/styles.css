@@ -401,14 +401,16 @@ body.dark-theme {
 .home__social {
   position: absolute;
   top: 35%;
-  left: -5rem;
-  transform: rotate(-90deg);
+ 
+ margin-top: 2rem;
   display: flex;
-  column-gap: 1rem;
+  flex-direction: column;
+  gap: 25px;
+
 }
 
 .home__social-link {
-  font-size: var(--smaller-font-size);
+  font-size: var(--h2-font-size);
   color: var(--text-color-light);
   transition: .3s;
 }
@@ -1252,7 +1254,7 @@ body.dark-theme {
     padding: 0 0 3rem 6rem;
   }
   .home__social {
-    top: 47%;
+    /* top: 47%; */
     column-gap: 2rem;
   }
 
@@ -1331,7 +1333,7 @@ body.dark-theme {
     width: 374px;
   }
   .home__social {
-    left: -6rem;
+    /* left: -6rem; */
   }
   .home__data {
     padding: 0 0 8rem 6rem;
