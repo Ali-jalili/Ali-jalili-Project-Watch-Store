@@ -652,6 +652,8 @@ const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container-form");
 const form = document.querySelector("#form");
 
+const signUpForm = document.querySelector('.sign-up-form');
+const signInForm = document.querySelector('.sign-in-form');
 
 // Load form data from local storage
 
@@ -663,7 +665,7 @@ sign_up_btn.addEventListener("click", () => {
     container.classList.add("sign-up-mode");
     localStorage.setItem("formState", "sign-up-mode");
 
-    console.log("safafaf");
+
 });
 
 sign_in_btn.addEventListener("click", () => {
@@ -672,27 +674,16 @@ sign_in_btn.addEventListener("click", () => {
 });
 
 
-// Save form data to local storage on submit
-// form.addEventListener("submit", (event) => {
-//     event.preventDefault();
-//     const formData = new FormData(form);
-//     localStorage.setItem(
-//         "formData",
-//         JSON.stringify(Object.fromEntries(formData))
-//     );
-//     alert("Form submitted!");
-// });
-
-
-
-
-const signUpForm = document.querySelector('.sign-up-form');
+//Sign Up
 
 signUpForm.addEventListener('submit', function (event) {
+
     // Prevent default form submission behavior
+
     event.preventDefault();
 
     // Get form data
+
     const formData = {
         username: signUpForm.querySelector('input[name=username]').value,
         email: signUpForm.querySelector('input[name=email]').value,
@@ -700,32 +691,49 @@ signUpForm.addEventListener('submit', function (event) {
         password: signUpForm.querySelector('input[name=password]').value
     };
 
-    // Check if form fields are empty
-    if (formData.username === '' || formData.email === '' || formData.phone === '' || formData.password === '') {
-        // Display error message
-        alert('Please fill in all fields!');
-        return;
-    }
+
 
     // Send form data using Axios
+
     axios.post('http://localhost:5000/users/register', formData)
 
         .then(function (response) {
 
 
             // Handle successful registration
+
             console.log('Registration successful!');
+
+            signUpForm.reset();
 
             console.log(response.data); // "success"
             console.log(response.data.message);
 
             // Clear form fields
+
             signUpForm.querySelector('input[name=username]').value = '';
             signUpForm.querySelector('input[name=email]').value = '';
             signUpForm.querySelector('input[name=phone]').value = '';
             signUpForm.querySelector('input[name=password]').value = '';
+
             setTimeout(() => {
-                alert('dvdsv')
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'User registration successful!'
+                })
+
             }, 100);
         })
 
@@ -733,21 +741,30 @@ signUpForm.addEventListener('submit', function (event) {
 
 
         .catch(function (error) {
+
             // Handle registration error
+
             console.log('Registration failed: ' + error);
+            alert(error.response.data.error);
+
         });
 
 
 });
 
 
-const signInForm = document.querySelector('.sign-in-form');
+//Sign in
 
 signInForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const username = signInForm.querySelector('input[type="text"]').value;
     const password = signInForm.querySelector('input[type="password"]').value;
+
+    if (!username || !password) {
+        alert('Please fill in all fields');
+        return;
+    }
 
     try {
         const response = await axios.post('http://localhost:5000/users/login', { username, password });

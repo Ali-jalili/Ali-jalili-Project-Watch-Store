@@ -5,7 +5,7 @@ require('dotenv').config();
 
 
 const productRuter = require('./routers/Product');
-const userRoutes = require('./routers/User')
+const userRoutes = require('./routers/User');
 
 
 
@@ -19,6 +19,8 @@ app.use(cors())
 
 app.use('/products', productRuter);
 app.use('/users', userRoutes);
+
+
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('Database connection established'))
