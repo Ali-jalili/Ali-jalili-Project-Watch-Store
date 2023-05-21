@@ -1332,9 +1332,7 @@ body.dark-theme {
   .home__img {
     width: 374px;
   }
-  .home__social {
-    /* left: -6rem; */
-  }
+
   .home__data {
     padding: 0 0 8rem 6rem;
   }
