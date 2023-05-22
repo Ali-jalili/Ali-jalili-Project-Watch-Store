@@ -695,7 +695,7 @@ signUpForm.addEventListener('submit', function (event) {
 
     // Send form data using Axios
 
-    axios.post('http://localhost:5000/users/register', formData)
+    axios.post('https://watch-store-server.onrender.com/users/register', formData)
 
         .then(function (response) {
 
@@ -767,7 +767,7 @@ signInForm.addEventListener('submit', async (event) => {
     }
 
     try {
-        const response = await axios.post('http://localhost:5000/users/login', { username, password });
+        const response = await axios.post('https://watch-store-server.onrender.com/users/login', { username, password });
 
         if (response.status === 200) {
 
