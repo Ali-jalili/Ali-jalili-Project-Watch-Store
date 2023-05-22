@@ -685,91 +685,25 @@ sign_in_btn.addEventListener("click", () => {
 
 //Sign Up
 
-// signUpForm.addEventListener('submit', function (event) {
 
-//     // Prevent default form submission behavior
+const passwordInput = document.querySelectorAll(".password-input");
 
-//     event.preventDefault();
-
-//     // Get form data
-
-//     const formData = {
-//         username: signUpForm.querySelector('input[name=username]').value,
-//         email: signUpForm.querySelector('input[name=email]').value,
-//         phone: signUpForm.querySelector('input[name=phone]').value,
-//         password: signUpForm.querySelector('input[name=password]').value
-//     };
-
-
-
-
-//     // Send form data using Axios
-
-//     axios.post('https://watch-store-server.onrender.com/users/register', formData)
-
-//         .then(function (response) {
-
-
-//             // Handle successful registration
-
-//             console.log('Registration successful!');
-
-//             signUpForm.reset();
-
-//             console.log(response.data); // "success"
-//             console.log(response.data.message);
-
-//             // Clear form fields
-
-//             signUpForm.querySelector('input[name=username]').value = '';
-//             signUpForm.querySelector('input[name=email]').value = '';
-//             signUpForm.querySelector('input[name=phone]').value = '';
-//             signUpForm.querySelector('input[name=password]').value = '';
-
-//             setTimeout(() => {
-//                 const Toast = Swal.mixin({
-//                     toast: true,
-//                     position: 'top-end',
-//                     showConfirmButton: false,
-//                     timer: 2000,
-//                     timerProgressBar: true,
-//                     didOpen: (toast) => {
-//                         toast.addEventListener('mouseenter', Swal.stopTimer)
-//                         toast.addEventListener('mouseleave', Swal.resumeTimer)
-//                     }
-//                 })
-
-//                 Toast.fire({
-//                     icon: 'success',
-//                     title: 'User registration successful!'
-//                 })
-
-//             }, 100);
-//         })
-
-
-
-
-//         .catch(function (error) {
-
-//             // Handle registration error
-
-//             console.log('Registration failed: ' + error);
-//             alert(error.response.data.error);
-
-//         });
-
-
-// });
+passwordInput.forEach(function (input) {
+    input.addEventListener("keypress", function (event) {
+        if (event.keyCode === 32) {
+            event.preventDefault();
+        }
+    });
+});
 
 signUpForm.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     try {
         const formData = {
-            username: signUpForm.querySelector('input[name=username]').value,
-            email: signUpForm.querySelector('input[name=email]').value,
-            phone: signUpForm.querySelector('input[name=phone]').value,
+            username: signUpForm.querySelector('input[name=username]').value.trim(),
+            email: signUpForm.querySelector('input[name=email]').value.trim(),
+            phone: signUpForm.querySelector('input[name=phone]').value.trim(),
             password: signUpForm.querySelector('input[name=password]').value
         };
 

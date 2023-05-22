@@ -37,6 +37,8 @@ module.exports.registerUser = async (req, res) => {
 
         // Password validation
 
+
+
         if (validator.isEmpty(password)) {
             console.log("nslknlknsknlvkns الزامی است");
             return res.status(400).send({ error: "Password is required" });
