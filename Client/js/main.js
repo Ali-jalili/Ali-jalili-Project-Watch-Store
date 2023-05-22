@@ -691,6 +691,11 @@ signUpForm.addEventListener('submit', function (event) {
         password: signUpForm.querySelector('input[name=password]').value
     };
 
+    if (!username || !password || !email || phone) {
+        alert('Please fill in all fields');
+        return;
+    }
+
 
 
     // Send form data using Axios
