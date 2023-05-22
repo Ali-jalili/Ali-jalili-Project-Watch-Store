@@ -691,10 +691,10 @@ signUpForm.addEventListener('submit', function (event) {
         password: signUpForm.querySelector('input[name=password]').value
     };
 
-    if (!username || !password || !email || phone) {
-        alert('Please fill in all fields');
-        return;
-    }
+    // if (!username || !password || !email || !phone) {
+    //     alert('Please fill in all fields');
+    //     return;
+    // }
 
 
 
