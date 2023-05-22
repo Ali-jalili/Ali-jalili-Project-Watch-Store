@@ -1645,7 +1645,7 @@ gap: 25px;
 .my-form.sign-up-form{
    opacity: 0;
   z-index: 1;
-  margin-top: 4rem;
+  margin-top: 1rem;
 }
 
 .title-form{
@@ -1669,7 +1669,6 @@ gap: 25px;
 
 .input-field i {
   text-align: center;
-  line-height: 55px;
   color: #acacac;
   transition: 0.5s;
   font-size: 1.1rem;
@@ -1679,7 +1678,6 @@ gap: 25px;
   background: none;
   outline: none;
   border: none;
-  line-height: 1;
   font-weight: 600;
   font-size: 1.1rem;
   color: #333;
