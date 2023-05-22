@@ -64,16 +64,39 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
 
 //?? NEW SWIPER ??*/
 
+// let newSwiper = new Swiper(".new-swiper", {
+//     spaceBetween: 24,
+//     loop: "true",
+//     touchEventsTarget: "wrapper",
+//     touch: true,
+
+//     navigation: {
+//         nextEl: ".swiper-button-next",
+//         prevEl: ".swiper-button-prev",
+//     },
+//     breakpoints: {
+//         576: {
+//             slidesPerView: 2,
+//         },
+//         768: {
+//             slidesPerView: 3,
+//         },
+//         1024: {
+//             slidesPerView: 4,
+//         },
+//     },
+// });
+
 let newSwiper = new Swiper(".new-swiper", {
     spaceBetween: 24,
-    loop: "true",
+    loop: true,
     touchEventsTarget: "wrapper",
+    touch: true,
     autoplay: {
-        delay: 5000, // زمان تاخیر بین اسلایدها
-        disableOnInteraction: false, // اگر کاربر با اسلایدها تعامل کند توقف کن
-        waitForTransition: true, // منتظر انتقال اسلاید بعدی باش
+        delay: 3000,
+        disableOnInteraction: false,
     },
-
+    speed: 1000,
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
