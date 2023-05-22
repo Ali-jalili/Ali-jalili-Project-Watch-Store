@@ -8,13 +8,15 @@ module.exports.registerUser = async (req, res) => {
 
         // Validate username
 
-        const trimmedUsername = username.trim();
+        const trimmedUsername = username.replace(/^[\uFEFF\s]+|[\uFEFF\s]+$/g, '')
 
         if (validator.isEmpty(trimmedUsername)) {
             return res.status(400).send({ error: "Username is required" });
         } else if (!validator.matches(trimmedUsername, /^[A-Za-z]+([A-Za-z0-9_-]*[A-Za-z0-9])?$/)) {
             return res.status(400).send({ error: "The username format entered is not correct. You can use English letters, numbers, '-', and '_', but it cannot start or end with '-', '_' and cannot start with a number." });
         }
+
+
 
         // Email validation
 
