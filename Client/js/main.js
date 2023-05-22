@@ -329,7 +329,7 @@ const cardContiner = document.querySelector("#products");
 const featured = document.querySelector("#featured");
 const newSwiperr = document.querySelector("#new-swiper");
 
-const urlApi = "http://localhost:5000/Products";
+const urlApi = "https://watch-store-server.onrender.com/Products";
 
 let dataProducts = [];
 
