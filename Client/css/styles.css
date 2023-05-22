@@ -1645,6 +1645,7 @@ gap: 25px;
 .my-form.sign-up-form{
    opacity: 0;
   z-index: 1;
+  margin-top: 4rem;
 }
 
 .title-form{
