@@ -312,7 +312,7 @@ body.dark-theme {
 .container-btn-swiper{
     position: relative;
     top: 5rem;
-    left: 33%;
+    left: 34%;
 }
   
 
@@ -868,6 +868,9 @@ body.dark-theme {
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 3rem;
   text-align: center;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1rem;
+    row-gap: 3rem;
 }
 
 .footer__title {

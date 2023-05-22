@@ -64,28 +64,7 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
 
 //?? NEW SWIPER ??*/
 
-// let newSwiper = new Swiper(".new-swiper", {
-//     spaceBetween: 24,
-//     loop: "true",
-//     touchEventsTarget: "wrapper",
-//     touch: true,
 
-//     navigation: {
-//         nextEl: ".swiper-button-next",
-//         prevEl: ".swiper-button-prev",
-//     },
-//     breakpoints: {
-//         576: {
-//             slidesPerView: 2,
-//         },
-//         768: {
-//             slidesPerView: 3,
-//         },
-//         1024: {
-//             slidesPerView: 4,
-//         },
-//     },
-// });
 
 let newSwiper = new Swiper(".new-swiper", {
     spaceBetween: 24,
@@ -95,6 +74,7 @@ let newSwiper = new Swiper(".new-swiper", {
     autoplay: {
         delay: 3000,
         disableOnInteraction: false,
+        waitForTransition: true,
     },
     speed: 1000,
     navigation: {
