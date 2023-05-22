@@ -794,7 +794,7 @@ signInForm.addEventListener('submit', async (event) => {
             })
 
             setTimeout(() => {
-                window.location.href = '/Client/index.html';
+                window.location.href = '/index.html';
             }, 1100);
 
 
