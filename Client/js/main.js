@@ -67,6 +67,12 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
 let newSwiper = new Swiper(".new-swiper", {
     spaceBetween: 24,
     loop: "true",
+    touchEventsTarget: "wrapper",
+    autoplay: {
+        delay: 5000, // زمان تاخیر بین اسلایدها
+        disableOnInteraction: false, // اگر کاربر با اسلایدها تعامل کند توقف کن
+        waitForTransition: true, // منتظر انتقال اسلاید بعدی باش
+    },
 
     navigation: {
         nextEl: ".swiper-button-next",
