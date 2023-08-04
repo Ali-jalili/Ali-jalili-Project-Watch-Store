@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!--? CDN scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--?? Icon URL  -->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+    <!--? CDN Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--?? CDN Swiper  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!--?? CDN  Sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+
+
+    <!--?? Style CSS   -->
+    <link rel="stylesheet" href="./css/styles.css">
+
+
+    <title>Sign in & Sign up Form</title>
+</head>
+
+<body>
+
+    <header class="header" id="header">
+
+        <!--? Menu  -->
+
+        <nav class="nav container">
+
+            <a href="#" class="nav__logo">
+                <i class='bx bxs-watch nav__logo-icon'></i> Chrono
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+
+                <ul class="nav__list">
+
+                    <li class="nav__item">
+                        <a href="./index.html" class="nav__link active-link">Home</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="./About Us.html" class="nav__link">About Us</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="./Contact Us.html" class="nav__link">Contact Us</a>
+                    </li>
+
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+
+                    <i class='bx bx-x'></i>
+
+                </div>
+
+            </div>
+
+            <div class="nav__btns">
+
+                <!-- Theme change button -->
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+                <!--Show Menu  -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+
+                <!--Login Page-->
+                <div>
+                    <a class="nav__shop" id="cart-shop" href="./Login and SignUp.html"><i
+                            class='bx bxs-user-account'></i></a>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main class="container-form">
+
+        <div class="forms-container">
+
+            <!--? Form  -->
+
+            <div class="signin-signup">
+
+                <!-- Sign in Form  -->
+
+                <form action="#" class="my-form sign-in-form">
+
+                    <h2 class="title-form">Sign in</h2>
+
+                    <div class="input-field">
+
+                        <i class='bx bxs-user'></i>
+
+                        <input type="text" placeholder="Username Or Email" />
+
+                    </div>
+
+                    <div class="input-field">
+
+                        <i class='bx bxs-lock'></i>
+
+                        <input type="password" placeholder="Password" class="password-input" />
+
+                    </div>
+
+                    <input type="submit" value="Login" class="btn-form solid" />
+
+                    <p class="social-text">Or Sign in with social platforms</p>
+
+                    <div class="social-media">
+
+                        <a href="#" class="social-icon">
+                            <i class='bx bxl-facebook-circle'></i>
+                        </a>
+
+                        <a href="#" class="social-icon">
+                            <i class='bx bxl-google'></i>
+                        </a>
+
+                        <a href="#" class="social-icon">
+                            <i class='bx bxl-linkedin'></i>
+                        </a>
+
+                    </div>
+
+                </form>
+
+                <!-- Sign Up Form -->
+
+                <form action="#" class="my-form sign-up-form">
+
+                    <h2 class="title-form">Sign up</h2>
+
+                    <div class="input-field">
+
+                        <i class='bx bxs-user'></i>
+                        <input type="text" placeholder="Username" name="username" />
+
+                    </div>
+
+                    <div class="input-field">
+
+                        <i class='bx bxs-envelope'></i>
+                        <input type="email" placeholder="Email" name="email" />
+
+                    </div>
+
+                    <div class="input-field">
+
+                        <i class='bx bxs-phone'></i>
+                        <input type="text" placeholder="Phone" name="phone">
+
+                    </div>
+
+                    <div class="input-field">
+
+                        <i class='bx bxs-lock'></i>
+
+                        <input type="password" placeholder="Password" name="password" class="password-input" />
+
+                    </div>
+
+                    <input type="submit" class="btn-form solid" value="Sign up" />
+
+                    <p class="social-text">Or Sign up with social Platforms</p>
+
+                    <div class="social-media">
+
+                        <a href="#" class="social-icon">
+                            <i class='bx bxl-facebook-circle'></i>
+                        </a>
+
+                        <a href="#" class="social-icon">
+                            <i class='bx bxl-google'></i>
+                        </a>
+
+                        <a href="#" class="social-icon">
+                            <i class='bx bxl-linkedin'></i>
+                        </a>
+
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Hello, Friend</h3>
+                    <p>
+                        Enter your personal details and start journey with us
+                    </p>
+                    <button class="btn-form transparent" id="sign-up-btn" type="submit">
+                        Sign up
+                    </button>
+                </div>
+                <img src="img/log.svg" class="image-form" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Wellcome Back!</h3>
+                    <p>
+                        To keep connected with us please login with your personal info
+                    </p>
+                    <button class="btn-form transparent" id="sign-in-btn" type="submit">
+                        Sign in
+                    </button>
+                </div>
+                <img src="img/register.svg" class="image-form" alt="" />
+            </div>
+        </div>
+    </main>
+
+
+    <!--?? MAIN JS ------------->
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html>
